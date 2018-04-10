@@ -93,7 +93,7 @@ public class Room implements RoomRules {
                 + "You fell the sweat starting to emerge.\n"
                 + "The room is made with staircase seats up towards each corner, providing a nice place to sit down and break a sweat.\n"
                 + "In the middle of the room there is a sauna oven with filled with stones on the top.\n"
-                + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water and a spoon.\n"
+                + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water, two birch branches and a spoon.\n"
                 + "in the top corner three fat Russians are sitting and looking at you...";
     }
 }
