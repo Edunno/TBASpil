@@ -11,7 +11,20 @@ import Rooms.Room;
  */
 public class Actions {
     
+    private Room currentRoom;
+    private String action;
+    
     public Actions(String actionTaken, Room currentRoom){
-        
+        this.currentRoom = currentRoom;
+        this.action = actionTaken;
     }
+    public String checkAction(){
+       if(currentRoom.getDoors().contains(action)){
+           return action; 
+       }
+       if(currentRoom.getActions().contains(action))
+           return 
+       
+    
+}
 }
