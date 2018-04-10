@@ -11,7 +11,7 @@ public class Room implements RoomRules {
 
     @Override
     public String getFlavorText() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return flavorText;
     }
 
     @Override
@@ -65,5 +65,21 @@ public class Room implements RoomRules {
                 + "Besides the big red button in front of you on a stander, with the title “Start” on it, it is completely empty.\n"
                 + "The room smells like the soap they use for cleaning at public restrooms.\n"
                 + "You are thinking about the first Harry Potter movie, where they are using themselves as chess pieces.";
+    }
+
+    public void studio54() {
+        this.flavorText = "Ohhhh my what is this, GROOOVY BABE, you feel the urge to dance!\n"
+                + "There is disco lights, music playing and the smell of sweat. Yes, you are back, this is studio54!\n"
+                + "While you gaze around you see:\n"
+                + "A bar with drinks, disco ball hanging from the celing and turning, Austin FUCKING Powers whinking at you and a ton of cocain and other recreational drugs";
+    }
+
+    public void saunaRoom() {
+        this.flavorText = "as you enter the hot steaming room, you meet a smell of eaculyptus and old-man-ball-sweat.\n"
+                + "You fell the sweat starting to emerge.\n"
+                + "The room is made with staircase seats up towards each corner, providing a nice place to sit down and break a sweat.\n"
+                + "In the middle of the room there is a sauna oven with filled with stones on the top.\n"
+                + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water and a spoon.\n"
+                + "in the top corner three fat Russians are sitting and looking at you...";
     }
 }
