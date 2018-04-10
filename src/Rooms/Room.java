@@ -6,6 +6,8 @@ package Rooms;
  * @author Esben
  */
 public class Room implements RoomRules {
+    
+    
 
     @Override
     public String getFlavorText() {

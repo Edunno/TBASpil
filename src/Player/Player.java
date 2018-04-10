@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tbaspil;
+package Player;
 
 /**
  *
- * @author Esben
+ * @author caspe
  */
-public class Controller {
+public class Player {
     
+    private String name;
+    private int health;
     
 }
