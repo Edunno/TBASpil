@@ -100,4 +100,5 @@ public class Room implements RoomRules {
 //        doors.add("go south");
 //        doors.add("go east");
 //        doors.add("go west");
+    
 }
