@@ -8,6 +8,7 @@ public class Room implements RoomRules {
 
     Room r1 = new Room();
     private String flavorText;
+    
 
     @Override
     public String getFlavorText() {
