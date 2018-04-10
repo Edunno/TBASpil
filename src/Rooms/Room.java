@@ -102,3 +102,4 @@ public class Room implements RoomRules {
 //        doors.add("go west");
     
 }
+// vi har lange løg
