@@ -8,7 +8,6 @@ package tbaspil;
 import Rooms.Room;
 import tbaspil.presentation.TUI;
 import Player.Player;
-import Actions;
 
 /**
  *
@@ -40,7 +39,7 @@ public class Controller {
         
     }
     public void checkAction(String a){
-        Action ch = new Action(a);
+        Actions ch = new Actions(a,currRoom);
     }
     
 }
