@@ -1,0 +1,10 @@
+Readme!
+Guideline for version numbering:
+1.0.0
+a b c
+
+a: Is the game version.  For all intents and purposes, this will stay 1.
+
+b: Is main, game and controller version.
+
+c: Story, items and rooms version.
