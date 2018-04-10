@@ -11,5 +11,20 @@ package tbaspil;
  */
 public class Controller {
     
+    public void startGame(){
+        
+    }
+    
+    public void getInputFromTUI(){
+        
+    }
+    
+    public void  createRoom(){
+        
+    }
+    
+    public void createPlayer(){
+        
+    }
     
 }
