@@ -40,6 +40,7 @@ public class Controller {
     }
     public void checkAction(String a){
         Actions ch = new Actions(a,currRoom);
+        ch.checkAction();
     }
     
 }
