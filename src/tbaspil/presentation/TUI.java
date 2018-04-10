@@ -12,8 +12,20 @@ import java.util.Scanner;
  * @author caspe
  */
 public class TUI {
-    
+
     private Scanner sc = new Scanner(System.in);
+
+    public String getName(String name) {
+        System.out.println("Name?");
+        String userName = sc.next();
+        while (userName.toLowerCase().equals("south") || userName.toLowerCase().equals("west") || userName.toLowerCase().equals("north") || userName.toLowerCase().equals("east")) {
+            System.out.println("Can't be North, South, East or West");
+            System.out.println("Name?");
+            userName = sc.next();
+
+        }
+        return userName;
+    }
 
     public String getInput(String a) {
         System.out.println(a);
