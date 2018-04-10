@@ -5,18 +5,30 @@
  */
 package tbaspil;
 
+import Rooms.Room;
+import tbaspil.presentation.TUI;
+import Player.Player;
+
 /**
  *
  * @author Esben
  */
 public class Controller {
+    private Room currRoom;
+    private Room nextRoom;
+    private TUI ask;
+    private Player gamer;
+    
     
     public void startGame(){
-        
+        String a = ask.getName();
+        gamer.setName(a);
+        gamer.setHealth(100);
     }
     
-    public void getInputFromTUI(){
-        
+    public String getInputFromTUI(String a){
+        String b = ask.getInput(a);
+        return b;
     }
     
     public void  createRoom(){
