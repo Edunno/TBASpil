@@ -32,7 +32,7 @@ public class Controller {
     }
     
     public void  createRoom(){
-        
+        this.nextRoom = new Room();
     }
     
     public void createPlayer(){
