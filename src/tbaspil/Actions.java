@@ -11,7 +11,7 @@ import Rooms.Room;
  */
 public class Actions {
     
-    public void Action(String actionTaken, Room currentRoom){
+    public Actions(String actionTaken, Room currentRoom){
         
     }
 }
