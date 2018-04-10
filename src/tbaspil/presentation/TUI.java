@@ -15,7 +15,7 @@ public class TUI {
 
     private Scanner sc = new Scanner(System.in);
 
-    public String getName(String name) {
+    public String getName() {
         System.out.println("Name?");
         String userName = sc.next();
         while (userName.toLowerCase().equals("south") || userName.toLowerCase().equals("west") || userName.toLowerCase().equals("north") || userName.toLowerCase().equals("east")) {
