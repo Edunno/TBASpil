@@ -96,4 +96,8 @@ public class Room implements RoomRules {
                 + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water, two birch branches and a spoon.\n"
                 + "in the top corner three fat Russians are sitting and looking at you...";
     }
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
 }
