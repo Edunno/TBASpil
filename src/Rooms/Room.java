@@ -13,9 +13,18 @@ public class Room implements RoomRules {
 //        doors.add("go east");
 //        doors.add("go west");
     Room r1 = new Room();
+
     private String flavorText;
     private ArrayList doors;
     private ArrayList actions;
+    
+    //Constructor
+    public Room(String name) {
+        if(name.equals("woodRoom")){
+            woodRoom();
+        }
+        //Indsæt flere muligheder for method calls.
+    }
 
     @Override
     public String getFlavorText() {
@@ -102,5 +111,4 @@ public class Room implements RoomRules {
                 + "A voice ermerges: HI I am ChiliKlaus. Do you want surstrømning or just regular caroline aka carolina ripper?\n"
                 + "This funny litle leprechaun looking man with black beard is the only thing you can focus on in this room";
     }
-    public void 
 }
