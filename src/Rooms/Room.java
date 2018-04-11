@@ -180,13 +180,13 @@ public class Room implements RoomRules {
         this.flavorText = "As you enter your parents’ bedroom, you notice something you haven't before…\n"
                 + "The bookshelf where all your baby pictures is standing is secret door with a staircase down.\n"
                 + "You call out: Moooooaaaam what is this?! From the deep you hear somebody call " + a + ".\n"
-                + "As you lean forward to listen, you fall in and the door slams behind you and keep falling.
+                + "As you lean forward to listen, you fall in and the door slams behind you and keep falling.\n"
                 + "\n"
                 + "Ahhhhhhhhhhhhhhhhh!!!\n"
                 + "\n"
                 + "BAM – you land on the floor. Confused you look around, where are you? What is this?\n"
                 + "The room is all red, there to couches, and a bell on the wall starts ringing.\n"
-                + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes."
+                + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes.";
     }
     
     public void kitchenRoom() {

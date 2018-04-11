@@ -38,7 +38,7 @@ public class Controller {
 
     //Forbereder det kommende rum.
     public void createRoom(String a) {
-        this.nextRoom = new Room(a);
+        this.nextRoom = new Room(a, gamer);
     }
 
     //Indsætter det nye rum.

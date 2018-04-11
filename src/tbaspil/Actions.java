@@ -29,10 +29,10 @@ public class Actions {
            return action; 
        }
     
-       if(currentRoom.getActions().contains(action))
+       if(currentRoom.getActions().contains(action)){
            return action;
-       
-       //slet
+       }
+       return "falseAction";
     
 }
     
