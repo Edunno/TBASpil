@@ -146,4 +146,53 @@ public class Room implements RoomRules {
 //        doors.add("go east");
 //        doors.add("go west");
     }
+        public void placeholderRoom() {
+        this.flavorText = "You have entered the room.\n"
+                + "The room is a big blank square of white walls, save for a text in the middle of all surfaces, that reads:\"no image\".\n"
+                + "This place has clearly been left blank, possibly intentionally to begin with, but you'd wager it's been forgotten.\n"
+                + "There seems to be blank doors in the walls though, so it's not totally wasted.";
+
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
+//        actions.add("");
+//        actions.add("");
+
+    }
+
+        public void londonRiotsRoom() {
+        this.flavorText = "You have entered the room.\n"
+                + "TYou suddenly find yourself in the middle of a street. You can see what looks like Big Ben in the distance.\n"
+                + "Buildings around you are randomly on fire, most windows have been smashed and a thick and hot smoke burns in your eyes and nose.\n"
+                + "There are two doors, on each side of the street. The one you came form and one on the other side.";
+
+                //Mulighed for at loote butikkerne
+
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
+//        actions.add("");
+//        actions.add("");
+
+    }
+        public void sarajevo1910() {
+        this.flavorText = "You sit outside a café. It looks like the early 1900's.\n"
+                + "The café you sit in front of is placed in what looks like an old european city, just next to a bridge crossing a river close to you.\n"
+                + "On your plate is a sandwhich, a couple of bites taken from it. You suppose it's yours, as no one else is at the café.\n"
+                + "You are wearing a cap and a thick wool coat, and as you feel it, you notice a gun in your right pocket. It's a small clip pistol.\n"
+                + "You have no idea where you got it from, but searching your jacket further, you find a pamflet written in some sort of slavick language.\n"
+                + "There is a tense feeling in the air from people passing by, yet the birds sing and it's a beautiful sommerday.\n"
+                + "From the the road up ahead an open car comes driving, it's passengers obviously fancy, as they are well dressed and escorted\n"
+                + "by otherr cars, both in front and behind. You wonder what to do next.";
+
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
+//        actions.add("");
+//        actions.add("");
+
+    }
 }
