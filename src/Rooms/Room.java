@@ -192,7 +192,7 @@ public class Room implements RoomRules {
     public void kitchenRoom() {
         this.flavorText = "As you enter the room, there is the sweet smell of Cinnamon and sweet apples.\n"
                 + "This reminds you of your grandmother’s place. You know, the place your parents keep teasing you with, the place you that you were made.\n"
-                + "Some might say that you are not fully baked, but you know better.;
+                + "Some might say that you are not fully baked, but you know better.";
 }    
     public String getNorth() {
         return north;
