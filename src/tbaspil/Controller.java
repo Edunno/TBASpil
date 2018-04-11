@@ -17,7 +17,7 @@ public class Controller {
 
     private Room currRoom;
     private Room nextRoom;
-    private TUI ask;
+    private TUI ask = new TUI();
     private Player gamer;
 
     public void startGame() {
@@ -47,8 +47,7 @@ public class Controller {
     }
 
     public void createPlayer(String a) {
-        gamer.setName(a);
-        gamer.setHealth(100);
+        gamer = new Player(a,100);
     }
 
     public void checkAction(String a) {
