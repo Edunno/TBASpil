@@ -46,6 +46,21 @@ public class Room implements RoomRules {
         if (name.equals("chiliRoom")) {
             chiliRoom();
         }
+        if (name.equals("startRoom")) {
+            startRoom();
+        }
+        if (name.equals("kitchenRoom")) {
+            kitchenRoom();
+        }
+        if (name.equals("placeholderRoom")) {
+            placeholderRoom();
+        }
+        if (name.equals("londonRiotsRoom")) {
+            londonRiotsRoom();
+        }
+        if (name.equals("sarajevo1910")) {
+            sarajevo1910();
+        }
 
         //Indsæt flere muligheder for method calls.
     }
