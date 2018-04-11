@@ -14,33 +14,46 @@ import Player.Player;
  * @author Esben
  */
 public class Controller {
+
     private Room currRoom;
     private Room nextRoom;
     private TUI ask;
     private Player gamer;
-    
-    
-    public void startGame(){
+
+    public void startGame() {
         String a = ask.getName();
-        gamer.setName(a);
-        gamer.setHealth(100);
+        createPlayer(a);
+        createRoom("StartRoom");
     }
-    
-    public String getInputFromTUI(String a){
+
+    public String getInputFromTUI(String a) {
         String b = ask.getInput(a);
         return b;
     }
-    
-    public void  createRoom(){
-        this.nextRoom = new Room();
+
+    //Forbereder det kommende rum.
+    public void createRoom(String a) {
+        this.nextRoom = new Room(a);
     }
-    
-    public void createPlayer(){
-        
+
+    //Indsætter det nye rum.
+    public void setCurrRoom() {
+        this.currRoom = this.nextRoom;
     }
-    public void checkAction(String a){
-        Actions ch = new Actions(a,currRoom);
-        ch.checkAction();
+
+    public void createPlayer(String a) {
+        gamer.setName(a);
+        gamer.setHealth(100);
     }
-    
+
+    public void checkAction(String a) {
+        Actions ch = new Actions(a, currRoom);
+        String b = ch.checkAction();
+        while(b.equals("falseAction")){
+            b = ask.falseInput();
+            ch.setAction(b);
+            b = ch.checkAction();
+        }
+    }
+
 }
