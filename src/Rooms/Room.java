@@ -22,6 +22,8 @@ public class Room implements RoomRules {
     //Constructor
     public Room(String name, Player gamer) {
         this.gamer = gamer;
+        doors = new ArrayList();
+        actions = new ArrayList();
         if (name.equals("woodRoom")) {
             woodRoom();
         }
