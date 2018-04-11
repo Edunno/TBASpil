@@ -24,6 +24,14 @@ public class Room implements RoomRules {
         //Indsæt flere muligheder for method calls.
     }
 
+    public ArrayList getDoors() {
+        return doors;
+    }
+
+    public ArrayList getActions() {
+        return actions;
+    }
+
     @Override
     public String getFlavorText() {
         return flavorText;
