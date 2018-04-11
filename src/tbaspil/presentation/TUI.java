@@ -17,7 +17,7 @@ public class TUI {
 
     public String getName() {
         System.out.println("Name?");
-        String userName = sc.next();
+        String userName = sc.nextLine();
         while (userName.toLowerCase().equals("south") || userName.toLowerCase().equals("west") || userName.toLowerCase().equals("north") || userName.toLowerCase().equals("east")) {
             System.out.println("Can't be North, South, East or West");
             System.out.println("Name?");
