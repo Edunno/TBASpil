@@ -15,12 +15,35 @@ public class Room implements RoomRules {
     private String flavorText;
     private ArrayList doors;
     private ArrayList actions;
+    private String north, south, west, east;
 
     //Constructor
     public Room(String name) {
         if (name.equals("woodRoom")) {
             woodRoom();
         }
+        if (name.equals("darkChestRoom")) {
+            darkChestRoom();
+        }
+        if (name.equals("handsRoom")) {
+            handsRoom();
+        }
+        if (name.equals("lavaFloorRoom")) {
+            lavaFloorRoom();
+        }
+        if (name.equals("checkersRoom")) {
+            checkersRoom();
+        }
+        if (name.equals("studio54")) {
+            studio54();
+        }
+        if (name.equals("saunaRoom")) {
+            saunaRoom();
+        }
+        if (name.equals("chiliRoom")) {
+            chiliRoom();
+        }
+        
         //Indsæt flere muligheder for method calls.
     }
 
@@ -64,6 +87,9 @@ public class Room implements RoomRules {
 //        doors.add("go west");
         actions.add("beat the meat");
         actions.add("give a hand");
+        
+        this.north = "darkChestRoom";
+        
 
     }
 
@@ -146,4 +172,21 @@ public class Room implements RoomRules {
 //        doors.add("go east");
 //        doors.add("go west");
     }
+
+    public String getNorth() {
+        return north;
+    }
+
+    public String getSouth() {
+        return south;
+    }
+
+    public String getWest() {
+        return west;
+    }
+
+    public String getEast() {
+        return east;
+    }
+    
 }
