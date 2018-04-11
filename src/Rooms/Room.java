@@ -22,6 +22,8 @@ public class Room implements RoomRules {
     //Constructor
     public Room(String name, Player gamer) {
         this.gamer = gamer;
+        doors = new ArrayList();
+        actions = new ArrayList();
         if (name.equals("woodRoom")) {
             woodRoom();
         }
@@ -217,6 +219,9 @@ public class Room implements RoomRules {
                 + "BAM – you land on the floor. Confused you look around, where are you? What is this?\n"
                 + "The room is all red, there to couches, and a bell on the wall starts ringing.\n"
                 + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes.";
+         
+         doors.add("north");
+         this.north = "placeholderRoom";
     }
     
     public void kitchenRoom() {
