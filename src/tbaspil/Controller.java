@@ -23,7 +23,10 @@ public class Controller {
     public void startGame() {
         String a = ask.getName();
         createPlayer(a);
-        createRoom("StartRoom");
+        createRoom("startRoom");
+        setCurrRoom();
+        String b = getInputFromTUI(currRoom.getFlavorText());
+        checkAction(b);
     }
 
     public String getInputFromTUI(String a) {
@@ -53,6 +56,15 @@ public class Controller {
             b = ask.falseInput();
             ch.setAction(b);
             b = ch.checkAction();
+        }
+        if(b.equals("north")){
+            
+        }if(b.equals("south")){
+            
+        }if(b.equals("east")){
+            
+        }if(b.equals("west")){
+            
         }
     }
 

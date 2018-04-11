@@ -9,7 +9,8 @@ package tbaspil;
 public class TBASpil {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        Controller go = new Controller();
+        go.startGame();
     }
     
 }
