@@ -32,7 +32,7 @@ public class Actions {
        if(currentRoom.getActions().contains(action))
            return action;
        
-       
+       //slet
     
 }
     
