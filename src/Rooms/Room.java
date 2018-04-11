@@ -1,5 +1,6 @@
 package Rooms;
 
+import Player.Player;
 import java.util.ArrayList;
 
 /**
@@ -16,9 +17,11 @@ public class Room implements RoomRules {
     private ArrayList doors;
     private ArrayList actions;
     private String north, south, west, east;
+    private Player gamer;
 
     //Constructor
-    public Room(String name) {
+    public Room(String name, Player gamer) {
+        this.gamer = gamer;
         if (name.equals("woodRoom")) {
             woodRoom();
         }
@@ -43,7 +46,7 @@ public class Room implements RoomRules {
         if (name.equals("chiliRoom")) {
             chiliRoom();
         }
-        
+
         //Indsæt flere muligheder for method calls.
     }
 
@@ -87,9 +90,8 @@ public class Room implements RoomRules {
 //        doors.add("go west");
         actions.add("beat the meat");
         actions.add("give a hand");
-        
+
         this.north = "darkChestRoom";
-        
 
     }
 
@@ -124,7 +126,7 @@ public class Room implements RoomRules {
                 + "But the room is glowing, and it is a red steaming substance. It’s lava!\n"
                 + "There is a wooden box in the middle, but you have to make a very long jump, to reach it.\n"
                 + "Its already pretty hot, from the small tile you are standing on.";
-        
+
 //        doors.add("go north");
 //        doors.add("go south");
 //        doors.add("go east");
@@ -173,6 +175,25 @@ public class Room implements RoomRules {
 //        doors.add("go west");
     }
 
+    public void startRoom() {
+        String a = gamer.getName();
+        this.flavorText = "As you enter your parents’ bedroom, you notice something you haven't before…\n"
+                + "The bookshelf where all your baby pictures is standing is secret door with a staircase down.\n"
+                + "You call out: Moooooaaaam what is this?! From the deep you hear somebody call " + a + ".\n"
+                + "As you lean forward to listen, you fall in and the door slams behind you and keep falling.
+                + "\n"
+                + "Ahhhhhhhhhhhhhhhhh!!!\n"
+                + "\n"
+                + "BAM – you land on the floor. Confused you look around, where are you? What is this?\n"
+                + "The room is all red, there to couches, and a bell on the wall starts ringing.\n"
+                + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes."
+    }
+    
+    public void kitchenRoom() {
+        this.flavorText = "As you enter the room, there is the sweet smell of Cinnamon and sweet apples.\n"
+                + "This reminds you of your grandmother’s place. You know, the place your parents keep teasing you with, the place you that you were made.\n"
+                + "Some might say that you are not fully baked, but you know better.
+}    
     public String getNorth() {
         return north;
     }
@@ -188,5 +209,5 @@ public class Room implements RoomRules {
     public String getEast() {
         return east;
     }
-    
+
 }
