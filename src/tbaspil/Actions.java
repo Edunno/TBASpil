@@ -13,6 +13,12 @@ public class Actions {
     
     private Room currentRoom;
     private String action;
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+    
+    
     
     public Actions(String actionTaken, Room currentRoom){
         this.currentRoom = currentRoom;
@@ -22,9 +28,12 @@ public class Actions {
        if(currentRoom.getDoors().contains(action)){
            return action; 
        }
+    
        if(currentRoom.getActions().contains(action))
-           return 
+           return action;
+       
        
     
 }
+    
 }
