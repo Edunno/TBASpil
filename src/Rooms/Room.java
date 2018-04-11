@@ -12,14 +12,13 @@ public class Room implements RoomRules {
 //        doors.add("go south");
 //        doors.add("go east");
 //        doors.add("go west");
-
     private String flavorText;
     private ArrayList doors;
     private ArrayList actions;
-    
+
     //Constructor
     public Room(String name) {
-        if(name.equals("woodRoom")){
+        if (name.equals("woodRoom")) {
             woodRoom();
         }
         //Indsæt flere muligheder for method calls.
@@ -51,8 +50,10 @@ public class Room implements RoomRules {
                 + "You can smell its been newly restored and the only thing you can see, is a desk and a large wooden chair from its behind.\n"
                 + "You can hear something, heavily breathing from the chair and your first thought is that time your mom sneaked up on you while beating the meat.";
 
-        doors.add("go north");
-        doors.add("go south");
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
         actions.add("beat the meat");
         actions.add("give a hand");
 
@@ -63,6 +64,11 @@ public class Room implements RoomRules {
                 + "The room is completely dark, except of a little stream of light, shining on a small shining chest.\n"
                 + "There is tones from a little chime playing in the background. The room smells like moist.\n"
                 + "You are thinking about all those scenarios from Indiana Jones, where he removes the artifact.";
+
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
     }
 
     public void handsRoom() {
@@ -71,6 +77,11 @@ public class Room implements RoomRules {
                 + "There is two dark figures with cloaks on, mumbling facing the pictures.\n"
                 + "*Sniff* *Sniff* - The rugs are giving the smell of curry and cardamom.\n"
                 + "The dark figures reminds you of something, but you don’t know what.";
+
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
     }
 
     public void lavaFloorRoom() {
@@ -79,6 +90,11 @@ public class Room implements RoomRules {
                 + "But the room is glowing, and it is a red steaming substance. It’s lava!\n"
                 + "There is a wooden box in the middle, but you have to make a very long jump, to reach it.\n"
                 + "Its already pretty hot, from the small tile you are standing on.";
+        
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");       
     }
 
     public void checkersRoom() {
@@ -87,6 +103,10 @@ public class Room implements RoomRules {
                 + "Besides the big red button in front of you on a stander, with the title “Start” on it, it is completely empty.\n"
                 + "The room smells like the soap they use for cleaning at public restrooms.\n"
                 + "You are thinking about the first Harry Potter movie, where they are using themselves as chess pieces.";
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
     }
 
     public void studio54() {
@@ -103,11 +123,19 @@ public class Room implements RoomRules {
                 + "In the middle of the room there is a sauna oven with filled with stones on the top.\n"
                 + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water, two birch branches and a spoon.\n"
                 + "in the top corner three fat Russians are sitting and looking at you...";
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
     }
 
     public void chiliRoom() {
         this.flavorText = "as you walk in the room, get the smell of newly cut grass and spicy lemon.\n"
                 + "A voice ermerges: HI I am ChiliKlaus. Do you want surstrømning or just regular caroline aka carolina ripper?\n"
                 + "This funny litle leprechaun looking man with black beard is the only thing you can focus on in this room";
+//        doors.add("go north");
+//        doors.add("go south");
+//        doors.add("go east");
+//        doors.add("go west");
     }
 }
