@@ -236,7 +236,7 @@ public class Room implements RoomRules {
                 + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes.";
          
          doors.add("east");
-         this.north = "darkChestRoom";
+         this.east = "darkChestRoom";
     }
     
     public void kitchenRoom() {
