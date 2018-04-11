@@ -49,6 +49,21 @@ public class Room implements RoomRules {
 
         //Indsæt flere muligheder for method calls.
     }
+        public String getNorth() {
+        return north;
+    }
+
+    public String getSouth() {
+        return south;
+    }
+
+    public String getWest() {
+        return west;
+    }
+
+    public String getEast() {
+        return east;
+    }
 
     public ArrayList getDoors() {
         return doors;
@@ -90,7 +105,7 @@ public class Room implements RoomRules {
 //        doors.add("go west");
         actions.add("beat the meat");
         actions.add("give a hand");
-
+        
         this.north = "darkChestRoom";
 
     }
@@ -194,21 +209,7 @@ public class Room implements RoomRules {
                 + "This reminds you of your grandmother’s place. You know, the place your parents keep teasing you with, the place you that you were made.\n"
                 + "Some might say that you are not fully baked, but you know better.";
 }    
-    public String getNorth() {
-        return north;
-    }
 
-    public String getSouth() {
-        return south;
-    }
-
-    public String getWest() {
-        return west;
-    }
-
-    public String getEast() {
-        return east;
-    }
 
         public void placeholderRoom() {
         this.flavorText = "You have entered the room.\n"
