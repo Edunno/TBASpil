@@ -23,8 +23,8 @@ public class Controller {
     public void startGame() {
         String a = ask.getName();
         createPlayer(a);
+        createRoom("startRoom");
         while (true) {
-            createRoom("startRoom");
             setCurrRoom();
             String b = getInputFromTUI(currRoom.getFlavorText());
             checkAction(b);
@@ -47,7 +47,7 @@ public class Controller {
     }
 
     public void createPlayer(String a) {
-        gamer = new Player(a,100);
+        gamer = new Player(a, 100);
     }
 
     public void checkAction(String a) {
