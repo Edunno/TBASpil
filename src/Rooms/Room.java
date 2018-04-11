@@ -136,7 +136,6 @@ public class Room implements RoomRules {
         doors.add("north");
         doors.add("south");
         doors.add("east");
-        doors.add("west");
         this.north = "saunaRoom";
         this.south = "londonRiotsRoom";
         this.east = "studio54";
