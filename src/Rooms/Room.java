@@ -116,14 +116,13 @@ public class Room implements RoomRules {
                 + "You can smell its been newly restored and the only thing you can see, is a desk and a large wooden chair from its behind.\n"
                 + "You can hear something, heavily breathing from the chair and your first thought is that time your mom sneaked up on you while beating the meat.";
 
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
-        actions.add("beat the meat");
-        actions.add("give a hand");
+
+        doors.add("south");
+
+//        actions.add("beat the meat");
+//        actions.add("give a hand");
         
-        this.north = "darkChestRoom";
+        this.south = "kitchenRoom";
 
     }
 
@@ -132,11 +131,16 @@ public class Room implements RoomRules {
                 + "The room is completely dark, except of a little stream of light, shining on a small shining chest.\n"
                 + "There is tones from a little chime playing in the background. The room smells like moist.\n"
                 + "You are thinking about all those scenarios from Indiana Jones, where he removes the artifact.";
+        
 
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+        doors.add("north");
+        doors.add("south");
+        doors.add("east");
+        doors.add("west");
+        this.north = "saunaRoom";
+        this.south = "londonRiotsRoom";
+        this.east = "studio54";
+        
     }
 
     public void handsRoom() {
@@ -146,10 +150,11 @@ public class Room implements RoomRules {
                 + "*Sniff* *Sniff* - The rugs are giving the smell of curry and cardamom.\n"
                 + "The dark figures reminds you of something, but you don’t know what.";
 
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+
+        doors.add("south");
+        doors.add("west");
+        this.south = "lavaFloorRoom";
+        this.west = "sarajevo1910";
     }
 
     public void lavaFloorRoom() {
@@ -159,10 +164,11 @@ public class Room implements RoomRules {
                 + "There is a wooden box in the middle, but you have to make a very long jump, to reach it.\n"
                 + "Its already pretty hot, from the small tile you are standing on.";
 
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");       
+
+        doors.add("west"); 
+        doors.add("north");
+        this.north = "handsRoom";
+        this.west = "placeholderRoom";
     }
 
     public void checkersRoom() {
@@ -171,10 +177,11 @@ public class Room implements RoomRules {
                 + "Besides the big red button in front of you on a stander, with the title “Start” on it, it is completely empty.\n"
                 + "The room smells like the soap they use for cleaning at public restrooms.\n"
                 + "You are thinking about the first Harry Potter movie, where they are using themselves as chess pieces.";
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+
+        doors.add("east");
+        doors.add("west");
+        this.east = "placeholderRoom";
+        this.west = "chiliRoom";
     }
 
     public void studio54() {
@@ -182,6 +189,12 @@ public class Room implements RoomRules {
                 + "There is disco lights, music playing and the smell of sweat. Yes, you are back, this is studio54!\n"
                 + "While you gaze around you see:\n"
                 + "A bar with drinks, disco ball hanging from the celing and turning, Austin FUCKING Powers whinking at you and a ton of cocain and other recreational drugs";
+        
+        doors.add("east");
+        doors.add("west");
+        this.east = "kitchenRoom";
+        this.west = "darkChestRoom";
+        
     }
 
     public void saunaRoom() {
@@ -191,20 +204,22 @@ public class Room implements RoomRules {
                 + "In the middle of the room there is a sauna oven with filled with stones on the top.\n"
                 + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water, two birch branches and a spoon.\n"
                 + "in the top corner three fat Russians are sitting and looking at you...";
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+
+        doors.add("south");
+        this.south = "darkChestRoom";
+
     }
 
     public void chiliRoom() {
         this.flavorText = "as you walk in the room, get the smell of newly cut grass and spicy lemon.\n"
                 + "A voice ermerges: HI I am ChiliKlaus. Do you want surstrømning or just regular caroline aka carolina ripper?\n"
                 + "This funny litle leprechaun looking man with black beard is the only thing you can focus on in this room";
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+        
+        doors.add("north");
+        doors.add("east");
+        this.north = "londonRiotsRoom";
+        this.east = "checkersRoom";
+
     }
 
     public void startRoom() {
@@ -220,14 +235,21 @@ public class Room implements RoomRules {
                 + "The room is all red, there to couches, and a bell on the wall starts ringing.\n"
                 + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes.";
          
-         doors.add("north");
-         this.north = "placeholderRoom";
+         doors.add("east");
+         this.north = "darkChestRoom";
     }
     
     public void kitchenRoom() {
         this.flavorText = "As you enter the room, there is the sweet smell of Cinnamon and sweet apples.\n"
                 + "This reminds you of your grandmother’s place. You know, the place your parents keep teasing you with, the place you that you were made.\n"
                 + "Some might say that you are not fully baked, but you know better.";
+        
+        doors.add("north");
+        doors.add("west");
+        doors.add("south");
+        this.north = "woodRoom";
+        this.west = "studio54";
+        this.south = "sarajevo1910";
 }    
 
 
@@ -237,10 +259,12 @@ public class Room implements RoomRules {
                 + "This place has clearly been left blank, possibly intentionally to begin with, but you'd wager it's been forgotten.\n"
                 + "There seems to be blank doors in the walls though, so it's not totally wasted.";
 
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+        doors.add("north");
+        doors.add("east");
+        doors.add("west");
+        this.north = "sarajevo1910";
+        this.east = "lavaFloorRoom";
+        this.west = "checkersRoom";
 //        actions.add("");
 //        actions.add("");
 
@@ -254,10 +278,11 @@ public class Room implements RoomRules {
 
                 //Mulighed for at loote butikkerne
 
-//        doors.add("go north");
-//        doors.add("go south");
-//        doors.add("go east");
-//        doors.add("go west");
+        doors.add("north");
+        doors.add("south");
+        this.north = "darkChestRoom";
+        this.south = "chiliRoom";
+
 //        actions.add("");
 //        actions.add("");
 
@@ -271,6 +296,13 @@ public class Room implements RoomRules {
                 + "There is a tense feeling in the air from people passing by, yet the birds sing and it's a beautiful sommerday.\n"
                 + "From the the road up ahead an open car comes driving, it's passengers obviously fancy, as they are well dressed and escorted\n"
                 + "by otherr cars, both in front and behind. You wonder what to do next.";
+        
+        doors.add("north");
+        doors.add("east");
+        doors.add("south");
+        this.north = "kitchenRoom";
+        this.east = "handsRoom";
+        this.south = "placeholderRoom";
 
 //        doors.add("go north");
 //        doors.add("go south");
