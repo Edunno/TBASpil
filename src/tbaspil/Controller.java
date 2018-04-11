@@ -23,10 +23,12 @@ public class Controller {
     public void startGame() {
         String a = ask.getName();
         createPlayer(a);
-        createRoom("startRoom");
-        setCurrRoom();
-        String b = getInputFromTUI(currRoom.getFlavorText());
-        checkAction(b);
+        while (true) {
+            createRoom("startRoom");
+            setCurrRoom();
+            String b = getInputFromTUI(currRoom.getFlavorText());
+            checkAction(b);
+        }
     }
 
     public String getInputFromTUI(String a) {
@@ -52,19 +54,22 @@ public class Controller {
     public void checkAction(String a) {
         Actions ch = new Actions(a, currRoom);
         String b = ch.checkAction();
-        while(b.equals("falseAction")){
+        while (b.equals("falseAction")) {
             b = ask.falseInput();
             ch.setAction(b);
             b = ch.checkAction();
         }
-        if(b.equals("north")){
-            
-        }if(b.equals("south")){
-            
-        }if(b.equals("east")){
-            
-        }if(b.equals("west")){
-            
+        if (b.equals("north")) {
+            createRoom(currRoom.getNorth());
+        }
+        if (b.equals("south")) {
+            createRoom(currRoom.getSouth());
+        }
+        if (b.equals("east")) {
+            createRoom(currRoom.getEast());
+        }
+        if (b.equals("west")) {
+            createRoom(currRoom.getWest());
         }
     }
 
