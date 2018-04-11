@@ -32,4 +32,9 @@ public class TUI {
         String b = sc.next().toLowerCase();
         return b;
     }
+    public String falseInput(){
+        System.out.println("Input is not elligeble. Please try again. ");
+        String a = sc.next().toLowerCase();
+        return a;
+    }
 }
