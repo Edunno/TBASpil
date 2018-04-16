@@ -11,13 +11,14 @@ package Rooms;
  */
 public class ActionList {
 
-    public void doAction(String actionTaken, Room currRoom) {
+    public Room doAction(String actionTaken, Room currRoom) {
         if (actionTaken.equals("Loot Stores")) {
-            lootStores(currRoom);
+            return lootStores(currRoom);
         }
         /*if(actionTaken.equals("")){
         
         }*/
+        return null;
     }
 
     public Room lootStores(Room currRoom) {
