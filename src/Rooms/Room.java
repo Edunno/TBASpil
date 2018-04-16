@@ -89,6 +89,18 @@ public class Room implements RoomRules {
     public ArrayList getActions() {
         return actions;
     }
+    public void addAction(String action){
+        actions.add(action);
+    }
+    public void removeAction(String action){
+        actions.remove(action);
+    }
+    public void addDoor(String door){
+        doors.add(door);
+    }
+    public void removeDoor(String door){
+        doors.add(door);
+    }
 
     @Override
     public String getFlavorText() {

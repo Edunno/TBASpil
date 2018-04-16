@@ -43,7 +43,7 @@ public class Player {
     }
     
     public void addItem(Item newItem){
-        //Lav check for om 
+        //Lav check for om der er duplikater m.m.
         this.Items.add(newItem);
     }
     

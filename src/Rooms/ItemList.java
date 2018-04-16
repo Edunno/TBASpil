@@ -13,6 +13,8 @@ import Player.Item;
  */
 public class ItemList {
     
+    
+    
     public Item getWoodSword(){
         Item woodSword = new Item("Wooden Sword","A wooden sword. It's pretty scrappy, and pretty crappy, but I guess it beats having to use your fists.",2,0,0,0,0,true,true);
         return woodSword;
