@@ -23,6 +23,7 @@ public class ActionList {
     public Room lootStores(Room currRoom) {
         System.out.println("You loot a couple of shops, and find a crowbar. Everything else is useless. There are some clothes and hoodies, but that's not really important, but if you want, you can imagine you get some new clothes.");
         currRoom.addAction("action"); //Placeholder!!!!!!!!!!
+        currRoom.removeAction("Loot Stores");
         return currRoom;
     }
 }
