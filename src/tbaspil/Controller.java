@@ -8,6 +8,7 @@ package tbaspil;
 import Rooms.Room;
 import tbaspil.presentation.TUI;
 import Player.Player;
+import Rooms.ActionList;
 
 /**
  *
@@ -19,14 +20,21 @@ public class Controller {
     private Room nextRoom;
     private TUI ask = new TUI();
     private Player gamer;
+    private boolean flag = true;
 
     public void startGame() {
         String a = ask.getName();
         createPlayer(a);
         createRoom("startRoom");
+        String b = "";
         while (true) {
             setCurrRoom();
-            String b = getInputFromTUI(currRoom.getFlavorText());
+            if (flag) {
+                b = getInputFromTUI(currRoom.getFlavorText());
+            }
+            else{
+                b = getInputFromTUI("");
+            }
             checkAction(b);
         }
     }
@@ -60,15 +68,24 @@ public class Controller {
         }
         if (b.equals("north")) {
             createRoom(currRoom.getNorth());
+            flag = true;
         }
         if (b.equals("south")) {
             createRoom(currRoom.getSouth());
+            flag = true;
         }
         if (b.equals("east")) {
             createRoom(currRoom.getEast());
+            flag = true;
         }
         if (b.equals("west")) {
             createRoom(currRoom.getWest());
+            flag = true;
+        }
+        if (b.equals("isAction")) {
+            ActionList al = new ActionList();
+            nextRoom = al.doAction(a, currRoom);
+            flag = false;
         }
     }
 
