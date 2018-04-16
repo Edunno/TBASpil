@@ -19,4 +19,9 @@ public class ItemList {
         Item woodSword = new Item("Wooden Sword","A wooden sword. It's pretty scrappy, and pretty crappy, but I guess it beats having to use your fists.",2,0,0,0,0,true,true);
         return woodSword;
     }
+    
+    public Item momsDildo(){
+        Item momsDildo = new Item("Moms Dildo","It's moist, dripping and you can feel the warmth of your mothers loom",3,0,5,2,0,true,true);
+        return momsDildo;
+    }
 }

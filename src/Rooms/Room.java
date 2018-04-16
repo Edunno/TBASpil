@@ -7,6 +7,9 @@ import java.util.ArrayList;
  *
  * @author Esben
  */
+
+//Lav rum så de kan connecte til ALLE rum der skal kunne låses op, så kan man låse døre op løbende!!!
+
 public class Room implements RoomRules {
 
 //        doors.add("go north");
