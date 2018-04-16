@@ -5,6 +5,8 @@
  */
 package Player;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author caspe
@@ -13,6 +15,7 @@ public class Player {
     
     private String name;
     private int health;
+    private ArrayList<Item> Items;
     
     public Player(String name, int health){
         this.name = name;
@@ -33,6 +36,15 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public ArrayList<Item> getItems() {
+        return Items;
+    }
+    
+    public void addItem(Item newItem){
+        //Lav check for om 
+        this.Items.add(newItem);
     }
     
 }
