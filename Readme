@@ -3,8 +3,8 @@ Guideline for version numbering:
 1.0.0
 a b c
 
-a: Is the game version.  For all intents and purposes, this will stay 1.
+a: Is the game version.  For all intents and purposes, this will stay 1(changed to 2 in Milestone 2, possbly 3 for the third).
 
 b: Is main, game and controller version.
 
-c: Story, items and rooms version.
+c: Story, items, player and rooms version.
