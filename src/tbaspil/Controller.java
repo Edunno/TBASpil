@@ -26,7 +26,7 @@ public class Controller {
         String a = ask.getName();
         createPlayer(a);
         createRoom("startRoom");
-        String b = "";
+        String b;
         while (true) {
             setCurrRoom();
             if (flag) {
@@ -40,7 +40,7 @@ public class Controller {
     }
 
     public String getInputFromTUI(String a) {
-        String b = ask.getInput(a);
+        String b = ask.getInput(a, currRoom);
         return b;
     }
 

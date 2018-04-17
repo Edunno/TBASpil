@@ -5,6 +5,7 @@
  */
 package tbaspil.presentation;
 
+import Rooms.Room;
 import java.util.Scanner;
 
 /**
@@ -27,8 +28,17 @@ public class TUI {
         return userName;
     }
 
-    public String getInput(String a) {
+    public String getInput(String a, Room room) {
         System.out.println(a);
+        System.out.println("Available actions:");
+        for(int i = 0 ; i < (room.getDoors().size()+room.getActions().size()); i++ ){
+            if(i < room.getDoors().size()){
+                System.out.println(room.getDoors().indexOf(i));
+            }
+            else if(i >= room.getDoors().size()){
+                System.out.println(room.getActions().indexOf(i-room.getDoors().size()));
+            }
+        }
         String b = sc.next().toLowerCase();
         return b;
     }
