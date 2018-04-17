@@ -18,8 +18,16 @@ public class Monster {
         this.dmg = dmg;
     }
     
-    public int getDmg(){
+    public int attack(){
         return dmg;
+    }
+
+    public int getDmg() {
+        return dmg;
+    }
+    
+    public void takeDamage(int i){
+        this.hp = this.hp-i;
     }
 
     public int getHp() {
