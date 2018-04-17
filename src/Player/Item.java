@@ -22,20 +22,17 @@ public class Item {
     private boolean isMainHand; //Does the item take up the main hand slot?
     private boolean isOffHand;  //Does the item take up the off hand slot?
 
-    public Item(String name, String description, int dmgBonus, int defBonus, int dmgSave, int hpRestore, int hpBonus, boolean reUsable, boolean unique, boolean isMainHand, boolean isOffHand) {
+    public Item(String name, String description, boolean unique) {
         this.name = name;
         this.description = description;
-        this.dmgBonus = dmgBonus;
-        this.defBonus = defBonus;
-        this.dmgSave = dmgSave;
-        this.hpRestore = hpRestore;
-        this.hpBonus = hpBonus;
-        this.reUsable = reUsable;
         this.unique = unique;
-        this.isMainHand = isMainHand;
-        this.isOffHand = isOffHand;
     }
-
+    /*
+    #######################################
+    ###############GETTERS#################
+    #######################################
+    */
+    
     public String getName() {
         return name;
     }
@@ -78,6 +75,43 @@ public class Item {
 
     public boolean isIsOffHand() {
         return isOffHand;
+    }
+    /*
+    ###################################
+    ##############SETTERS##############
+    ###################################
+    */
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDmgBonus(int dmgBonus) {
+        this.dmgBonus = dmgBonus;
+    }
+
+    public void setDmgSave(int dmgSave) {
+        this.dmgSave = dmgSave;
+    }
+
+    public void setHpRestore(int hpRestore) {
+        this.hpRestore = hpRestore;
+    }
+
+    public void setHpBonus(int hpBonus) {
+        this.hpBonus = hpBonus;
+    }
+
+    public void setReUsable(boolean reUsable) {
+        this.reUsable = reUsable;
+    }
+
+    public void setIsMainHand(boolean isMainHand) {
+        this.isMainHand = isMainHand;
+    }
+
+    public void setIsOffHand(boolean isOffHand) {
+        this.isOffHand = isOffHand;
     }
     
     
