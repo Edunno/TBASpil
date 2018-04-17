@@ -47,4 +47,5 @@ public class TUI {
         String a = sc.next().toLowerCase();
         return a;
     }
+    //LOL
 }
