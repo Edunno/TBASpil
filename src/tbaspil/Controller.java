@@ -22,7 +22,7 @@ public class Controller {
     private Player gamer;
     private boolean flag = true;
     private String intro;
-
+    
     public void startGame() {
         makeIntro();
         ask.generalPrinter(intro);
@@ -37,6 +37,9 @@ public class Controller {
             }
             else{
                 b = getInputFromTUI("");
+            }
+            if (currRoom.isFight()){
+                b = fightInTUI();
             }
             checkAction(b);
         }
@@ -104,6 +107,10 @@ public class Controller {
 "  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n" +
 "  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n" +
 "        ░                                                                 ";
+    }
+
+    private String fightInTUI() {
+        
     }
 
 }

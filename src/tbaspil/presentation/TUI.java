@@ -50,5 +50,9 @@ public class TUI {
         String a = sc.next().toLowerCase();
         return a;
     }
-    //LOL
+    
+    public String fightInput(){
+        System.out.println("But before you can do anything, you are attacked!");
+        
+    }
 }

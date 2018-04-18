@@ -21,6 +21,8 @@ public class Room implements RoomRules {
     private ArrayList actions;
     private String north, south, west, east;
     private Player gamer;
+    private boolean fight = false;
+    private String monster;
 
     //Constructor
     public Room(String name, Player gamer) {
@@ -123,6 +125,18 @@ public class Room implements RoomRules {
     @Override
     public String getAvailableExits() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean isFight() {
+        return fight;
+    }
+
+    public void setFight(boolean fight) {
+        this.fight = fight;
+    }
+
+    public String getMonster() {
+        return monster;
     }
 
     public void woodRoom() {
@@ -252,6 +266,7 @@ public class Room implements RoomRules {
          doors.add("east");
          this.east = "darkChestRoom";
          actions.add("Grab");
+         fight = true;
     }
     
     public void kitchenRoom() {
