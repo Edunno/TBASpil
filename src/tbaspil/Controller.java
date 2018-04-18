@@ -26,27 +26,27 @@ public class Controller {
     private String intro;
     private MonsterList mons = new MonsterList();
     private Monster currMonster;
-    
+    private String tuiText;
+
     public void startGame() {
         makeIntro();
         ask.generalPrinter(intro);
         String a = ask.getName();
         createPlayer(a);
         createRoom("startRoom");
-        String b;
         while (true) {
             setCurrRoom();
             if (flag) {
-                b = getInputFromTUI(currRoom.getFlavorText());
+                tuiText = getInputFromTUI(currRoom.getFlavorText());
+            } else if (!currRoom.isFight()) {
+                tuiText = getInputFromTUI("");
             }
-            else{
-                b = getInputFromTUI("");
-            }
-            if (currRoom.isFight()){
+            if (currRoom.isFight()) {
                 currMonster = mons.makeMonster(currRoom.getMonster());
-                b = fightInTUI(currMonster);
+                tuiText = fightInTUI(currMonster);
             }
-            checkAction(b);
+            checkAction(tuiText);
+
         }
     }
 
@@ -98,20 +98,38 @@ public class Controller {
             nextRoom = al.doAction(a, currRoom);
             flag = false;
         }
+        if (b.equals("isOther")) {
+            if (a.equals("help")) {
+                flag = false;
+                tuiText = ""; //Write some effing help text.
+            } else if (b.equals("inventory")) {
+                for (int i = 0; i < gamer.getItems().size(); i++) {
+                    ask.generalPrinter(gamer.getItems().get(i).getName());
+                    ask.generalPrinter("- type \"exit\" to return.");
+                }
+                while (true) {
+                    String item = ask.inputRequest("Select Item to interact with: ");
+                    if (item.equals("exit")) {
+                        break;
+                    }
+                    //Lav en else der håndterer items og hvad der skal gøres ved dem. Skal kunne finde tingen i gamer.getItems ol.
+                }
+            }
+        }
     }
 
     private void makeIntro() {
-        this.intro = 
-"  ▄▄▄▄      ▄▄▄        ██████  ▓█████  ███▄ ▄███▓▓█████  ███▄    █   ▄▄▄█████▓\n" +
-"▓█████▄ ▒████▄    ▒██    ▒   ▓█    ▀ ▓██▒▀█▀ ██▒▓█    ▀  ██ ▀█   █ ▓      ██▒ ▓▒\n" +
-"▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄    ▒███    ▓██     ▓██░▒███    ▓██  ▀█ ██▒▒   ▓██░ ▒░\n" +
-"▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▓█    ▄  ▒██     ▒██ ▒▓█   ▄  ▓██▒  ▐▌██▒░  ▓██▓ ░ \n" +
-"░▓█  ▀█▓ ▓█     ▓██▒▒██████░█████▒▒██▒  ░██▒░▒████▒▒██░   ▓██░   ▒██▒ ░ \n" +
-"░▒▓███▀▒ ▒▒    ▓▒█░▒    ▒▓▒ ▒ ░░░ ▒░ ░░ ▒░   ░  ░░░ ▒░ ░░ ▒░      ▒ ▒     ▒ ░░   \n" +
-"▒░▒   ░ ▒▒ ▒ ░░ ░▒  ░ ░ ░ ░  ░░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    \n" +
-"  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n" +
-"  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n" +
-"        ░                                                                 ";
+        this.intro
+                = "  ▄▄▄▄      ▄▄▄        ██████  ▓█████  ███▄ ▄███▓▓█████  ███▄    █   ▄▄▄█████▓\n"
+                + "▓█████▄ ▒████▄    ▒██    ▒   ▓█    ▀ ▓██▒▀█▀ ██▒▓█    ▀  ██ ▀█   █ ▓      ██▒ ▓▒\n"
+                + "▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄    ▒███    ▓██     ▓██░▒███    ▓██  ▀█ ██▒▒   ▓██░ ▒░\n"
+                + "▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▓█    ▄  ▒██     ▒██ ▒▓█   ▄  ▓██▒  ▐▌██▒░  ▓██▓ ░ \n"
+                + "░▓█  ▀█▓ ▓█     ▓██▒▒██████░█████▒▒██▒  ░██▒░▒████▒▒██░   ▓██░   ▒██▒ ░ \n"
+                + "░▒▓███▀▒ ▒▒    ▓▒█░▒    ▒▓▒ ▒ ░░░ ▒░ ░░ ▒░   ░  ░░░ ▒░ ░░ ▒░      ▒ ▒     ▒ ░░   \n"
+                + "▒░▒   ░ ▒▒ ▒ ░░ ░▒  ░ ░ ░ ░  ░░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    \n"
+                + "  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n"
+                + "  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n"
+                + "        ░                                                                 ";
     }
 
     private String fightInTUI(Monster a) {

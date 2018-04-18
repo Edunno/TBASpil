@@ -32,6 +32,9 @@ public class Actions {
        if(currentRoom.getActions().contains(action)){
            return "isAction";
        }
+       if( action.equals("help") || action.equals("inventory")){
+           return "isOther"
+       }
        return "falseAction";
     
 }
