@@ -251,6 +251,7 @@ public class Room implements RoomRules {
          
          doors.add("east");
          this.east = "darkChestRoom";
+         actions.add("Grab");
     }
     
     public void kitchenRoom() {
