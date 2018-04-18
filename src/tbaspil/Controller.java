@@ -21,8 +21,11 @@ public class Controller {
     private TUI ask = new TUI();
     private Player gamer;
     private boolean flag = true;
+    private String intro;
 
     public void startGame() {
+        makeIntro();
+        ask.generalPrinter(intro);
         String a = ask.getName();
         createPlayer(a);
         createRoom("startRoom");
@@ -87,6 +90,20 @@ public class Controller {
             nextRoom = al.doAction(a, currRoom);
             flag = false;
         }
+    }
+
+    private void makeIntro() {
+        this.intro = 
+"  ▄▄▄▄      ▄▄▄        ██████  ▓█████  ███▄ ▄███▓▓█████  ███▄    █   ▄▄▄█████▓\n" +
+"▓█████▄ ▒████▄    ▒██    ▒   ▓█    ▀ ▓██▒▀█▀ ██▒▓█    ▀  ██ ▀█   █ ▓      ██▒ ▓▒\n" +
+"▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄    ▒███    ▓██     ▓██░▒███    ▓██  ▀█ ██▒▒   ▓██░ ▒░\n" +
+"▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▓█    ▄  ▒██     ▒██ ▒▓█   ▄  ▓██▒  ▐▌██▒░  ▓██▓ ░ \n" +
+"░▓█  ▀█▓ ▓█     ▓██▒▒██████░█████▒▒██▒  ░██▒░▒████▒▒██░   ▓██░   ▒██▒ ░ \n" +
+"░▒▓███▀▒ ▒▒    ▓▒█░▒    ▒▓▒ ▒ ░░░ ▒░ ░░ ▒░   ░  ░░░ ▒░ ░░ ▒░      ▒ ▒     ▒ ░░   \n" +
+"▒░▒   ░ ▒▒ ▒ ░░ ░▒  ░ ░ ░ ░  ░░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    \n" +
+"  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n" +
+"  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n" +
+"        ░                                                                 ";
     }
 
 }
