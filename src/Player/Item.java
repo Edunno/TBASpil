@@ -15,7 +15,7 @@ public class Item {
     private int dmgBonus;
     private int defBonus;       //Reduces damage taken.
     private int dmgSave;        //0-99 Gives a chance to avoid all incoming damage.
-    private int hpRestore; 
+    private int hpRestore;      //Restore hp to a player, if any hp is missing.
     private int hpBonus;        //permanent bonus to hp pool.
     private boolean reUsable;   //Decides wether the item is single use or not.
     private boolean unique;     //Decides wether the player can have multiple of the item or not.
@@ -89,6 +89,10 @@ public class Item {
     public void setDmgBonus(int dmgBonus) {
         this.dmgBonus = dmgBonus;
     }
+    
+    public void setDefBonus(int defBonus) {
+        this.defBonus = defBonus;
+    }
 
     public void setDmgSave(int dmgSave) {
         this.dmgSave = dmgSave;
@@ -104,6 +108,10 @@ public class Item {
 
     public void setReUsable(boolean reUsable) {
         this.reUsable = reUsable;
+    }
+    
+    public void setUnique (boolean unique) {
+        this.unique = unique;
     }
 
     public void setIsMainHand(boolean isMainHand) {
