@@ -5,6 +5,7 @@
  */
 package tbaspil.presentation;
 
+import Player.Monster;
 import Rooms.Room;
 import java.util.Scanner;
 
@@ -51,8 +52,10 @@ public class TUI {
         return a;
     }
     
-    public String fightInput(){
-        System.out.println("But before you can do anything, you are attacked!");
+    public String fightInput(Monster x){
+        System.out.println(x.getVoiceAttack());
         
+        String a = sc.next();
+        return a;
     }
 }
