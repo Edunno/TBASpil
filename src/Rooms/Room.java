@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 //Lav rum så de kan connecte til ALLE rum der skal kunne låses op, så kan man låse døre op løbende!!!
 
-public class Room implements RoomRules {
+public class Room {
 
 //        doors.add("go north");
 //        doors.add("go south");
@@ -107,16 +107,10 @@ public class Room implements RoomRules {
         doors.add(door);
     }
 
-    @Override
     public String getFlavorText() {
         return flavorText;
     }
-
-    @Override
-    public String getInventory() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     public boolean isFight() {
         return fight;
     }
