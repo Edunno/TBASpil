@@ -46,15 +46,15 @@ public class Babysitter extends Monster {
                 dmg1 = 2;
                 break;
             case 4:
-                voiceAttack = ", young man";
-                dmg1 =0;
+                voiceAttack = "Don't you roll your eyes at me, young man";
+                dmg1 =1;
                 break;
             case 5:
-                voiceAttack = ", young man";
+                voiceAttack = "I'm going to count to three and then you're in trouble, young man";
                 dmg1 =0;
                 break;
             case 6:
-                voiceAttack = ", young man";
+                voiceAttack = "Aren't you cuttest one, young man";
                 dmg1 =0;
                 break;
             default:

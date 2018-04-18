@@ -33,7 +33,7 @@ public class TUI {
 
     public String getInput(String a, Room room) {
         System.out.println(a);
-        System.out.println("/nAvailable commands:");
+        System.out.println("\nAvailable commands:");
         for(int i = 0 ; i < (room.getDoors().size()+room.getActions().size()); i++ ){
             if(i < room.getDoors().size()){
                 System.out.println(room.getDoors().get(i));
