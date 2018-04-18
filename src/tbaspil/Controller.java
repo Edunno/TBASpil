@@ -5,10 +5,12 @@
  */
 package tbaspil;
 
+import Player.Monster;
 import Rooms.Room;
 import tbaspil.presentation.TUI;
 import Player.Player;
 import Rooms.ActionList;
+import Rooms.MonsterList;
 
 /**
  *
@@ -22,6 +24,8 @@ public class Controller {
     private Player gamer;
     private boolean flag = true;
     private String intro;
+    private MonsterList mons = new MonsterList();
+    private Monster currMonster;
     
     public void startGame() {
         makeIntro();
@@ -39,7 +43,8 @@ public class Controller {
                 b = getInputFromTUI("");
             }
             if (currRoom.isFight()){
-                b = fightInTUI();
+                currMonster = mons.makeMonster(currRoom.getMonster());
+                b = fightInTUI(currMonster);
             }
             checkAction(b);
         }
@@ -109,8 +114,8 @@ public class Controller {
 "        ░                                                                 ";
     }
 
-    private String fightInTUI() {
-        
+    private String fightInTUI(Monster a) {
+        return ask.fightInput(a);
     }
 
 }
