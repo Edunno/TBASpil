@@ -30,13 +30,13 @@ public class TUI {
 
     public String getInput(String a, Room room) {
         System.out.println(a);
-        System.out.println("Available actions:");
+        System.out.println("/nAvailable commands:");
         for(int i = 0 ; i < (room.getDoors().size()+room.getActions().size()); i++ ){
             if(i < room.getDoors().size()){
-                System.out.println(room.getDoors().indexOf(i));
+                System.out.println(room.getDoors().get(i));
             }
             else if(i >= room.getDoors().size()){
-                System.out.println(room.getActions().indexOf(i-room.getDoors().size()));
+                System.out.println(room.getActions().get(i-room.getDoors().size()));
             }
         }
         String b = sc.next().toLowerCase();
