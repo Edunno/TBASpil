@@ -15,7 +15,7 @@ import java.util.Random;
 public class Babysitter extends Monster {
 
     private String voiceAttack;
-
+    private int dmg1 = 0;
     private Random r = new Random();
 
     public Babysitter() {
@@ -25,13 +25,12 @@ public class Babysitter extends Monster {
     @Override
     public int attack() {
         voiceAttack();
-        int dmg = voiceAttack();
-        return dmg;
+        return dmg1;
     }
-
-    public int voiceAttack() {
+    @Override
+    public void voiceAttack() {
         int rand = r.nextInt(5) + 1;
-        int dmg1 = 0;
+        dmg1 = 0;
         switch (rand) {
             case 1:
                 voiceAttack = "You go to bed, young man";
@@ -60,7 +59,6 @@ public class Babysitter extends Monster {
             default:
                 break;
         }
-            return dmg1;
     }
 
 }
