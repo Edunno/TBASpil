@@ -33,7 +33,7 @@ public class Actions {
            return "isAction";
        }
        if( action.equals("help") || action.equals("inventory")){
-           return "isOther"
+           return "isOther";
        }
        return "falseAction";
     
