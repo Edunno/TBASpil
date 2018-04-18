@@ -12,6 +12,7 @@ package Player;
 public class Monster {
     private int hp;
     private int dmg;
+    private String voiceAttack;
 
     public Monster(int hp, int dmg) {
         this.hp = hp;
@@ -32,6 +33,13 @@ public class Monster {
 
     public int getHp() {
         return hp;
+    }
+    public void voiceAttack(){
+        this.voiceAttack = "The monster attacks you!";
+    }
+
+    public String getVoiceAttack() {
+        return voiceAttack;
     }
     
 }
