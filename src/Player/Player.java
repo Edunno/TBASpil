@@ -89,5 +89,5 @@ public class Player {
     public void addMaxHealth(int i) {
         maxHealth += i;
     }
-
+    
 }
