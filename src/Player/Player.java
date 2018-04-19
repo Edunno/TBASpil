@@ -12,12 +12,14 @@ import java.util.ArrayList;
  * @author caspe
  */
 public class Player {
-    
+
     private String name;
     private int health;
     private ArrayList<Item> Items;
-    
-    public Player(String name, int health){
+    private Item mainHand;
+    private Item offHand;
+
+    public Player(String name, int health) {
         this.name = name;
         this.health = health;
     }
@@ -41,13 +43,34 @@ public class Player {
     public ArrayList<Item> getItems() {
         return Items;
     }
-    
-    public void addItem(Item newItem){
+
+    public void addItem(Item newItem) {
         //Lav check for om der er duplikater m.m.
         this.Items.add(newItem);
     }
-    public int attack(){
+
+    public int attack() {
         return 0;
     }
-    
+
+    public Item getMainHand() {
+        return mainHand;
+    }
+
+    public void setMainHand(Item mainHand) {
+        if (mainHand.isIsMainHand()) {
+            this.mainHand = mainHand;
+        }
+    }
+
+    public Item getOffHand() {
+        return offHand;
+    }
+
+    public void setOffHand(Item offHand) {
+        if (offHand.isIsOffHand()) {
+            this.offHand = offHand;
+        }
+    }
+
 }
