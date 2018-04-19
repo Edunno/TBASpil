@@ -74,76 +74,135 @@ public class Babysitter extends Monster {
     }
 
     public void attackOptions(String a) {
-        if (rand == 1 && (a.equals("attack"))) {
-            takeDamage(0);
-            dmg1 = 3;
-        } else if (rand == 1 && (a.equals("yell at babysitter"))) {
-            takeDamage(1);
-        } else if (rand == 1 && (a.equals("Snarky comeback"))) {
-            takeDamage(2);
-        } else if (rand == 1 && (a.equals("start crying"))) {
-            takeDamage(0);
-            dmg1 = -2;
-        } else if (rand == 2 && (a.equals("attack"))) {
-            takeDamage(0);
-            dmg1 = 3;
-        } else if (rand == 2 && (a.equals("yell at babysitter"))) {
-            takeDamage(1);
-            dmg1 = 0;
-        } else if (rand == 2 && (a.equals("Snarky comeback"))) {
-            takeDamage(3);
-        } else if (rand == 2 && (a.equals("start crying"))) {
-            takeDamage(0);
-            dmg1 = 2;
-        } else if (rand == 3 && (a.equals("attack"))) {
-            takeDamage(1);
-            dmg1 = 0;
-        } else if (rand == 3 && (a.equals("yell at babysitter"))) {
-            takeDamage(1);
-            dmg1 = 1;
-        } else if (rand == 3 && (a.equals("Snarky comeback"))) {
-            takeDamage(3);
-            dmg1 = 0;
-        } else if (rand == 3 && (a.equals("start crying"))) {
-            takeDamage(2);
-            dmg1 = 2;
-        } else if (rand == 4 && (a.equals("attack"))) {
-            takeDamage(2);
-            dmg1 = 0;
-        } else if (rand == 4 && (a.equals("yell at babysitter"))) {
-            takeDamage(2);
-            dmg1 = 0;
-        } else if (rand == 4 && (a.equals("Repeat in in a high pitch voice what babysitter said"))) {
-            takeDamage(3);
-            dmg1 = 0;
-        } else if (rand == 4 && (a.equals("start crying"))) {
-            takeDamage(0);
-            dmg1 = 0;
-        } else if (rand == 5 && (a.equals("attack"))) {
-            takeDamage(2);
-            dmg1 = 0;
-        } else if (rand == 5 && (a.equals("yell at babysitter"))) {
-            takeDamage(3);
-            dmg1 = 0;
-        } else if (rand == 5 && (a.equals("Snarky comeback"))) {
-            takeDamage(5);
-            dmg1 = 0;
-        } else if (rand == 5 && (a.equals("start crying"))) {
-            takeDamage(0);
-            dmg1 = 2;
-        } else if (rand == 6 && (a.equals("Make out with babysitter"))) {
-            takeDamage(10);
-            dmg1 = 0;
-        } else if (rand == 6 && (a.equals("yell at babysitter"))) {
-            takeDamage(2);
-            dmg1 = 0;
-        } else if (rand == 6 && (a.equals("Snarky comeback"))) {
-            takeDamage(3);
-            dmg1 = 0;
-        } else if (rand == 6 && (a.equals("start crying"))) {
-            takeDamage(2);
-            dmg1 = 5;
+        switch (rand) {
+            case 1:
+        switch (a) {
+            case "attack":
+                takeDamage(0);
+                dmg1 = 3;
+                break;
+            case "yell at babysitter":
+                takeDamage(1);
+                break;
+            case "Snarky comeback":
+                takeDamage(2);
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = -2;
+                break;
+            default:
+                break;
         }
+                break;
 
+            case 2:
+        switch (a) {
+            case "attack":
+                takeDamage(0);
+                dmg1 = 3;
+                break;
+            case "yell at babysitter":
+                takeDamage(1);
+                dmg1 = 0;
+                break;
+            case "Snarky comeback":
+                takeDamage(3);
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = 2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 3:
+        switch (a) {
+            case "attack":
+                takeDamage(1);
+                dmg1 = 0;
+                break;
+            case "yell at babysitter":
+                takeDamage(1);
+                dmg1 = 1;
+                break;
+            case "Snarky comeback":
+                takeDamage(3);
+                dmg1 = 0;
+                break;
+            case "start crying":
+                takeDamage(2);
+                dmg1 = 2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 4:
+        switch (a) {
+            case "attack":
+                takeDamage(2);
+                dmg1 = 0;
+                break;
+            case "yell at babysitter":
+                takeDamage(2);
+                dmg1 = 0;
+                break;
+            case "Repeat in in a high pitch voice what babysitter said":
+                takeDamage(3);
+                dmg1 = 0;
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = 0;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 5:
+        switch (a) {
+            case "attack":
+                takeDamage(2);
+                dmg1 = 0;
+                break;
+            case "yell at babysitter":
+                takeDamage(3);
+                dmg1 = 0;
+                break;
+            case "Snarky comeback":
+                takeDamage(5);
+                dmg1 = 0;
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = 2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 6:
+                if (a.equals("Make out with babysitter")) {
+                    takeDamage(10);
+                    dmg1 = 0;
+                } else if (a.equals("yell at babysitter")) {
+                    takeDamage(2);
+                    dmg1 = 0;
+                } else if (a.equals("Snarky comeback")) {
+                    takeDamage(3);
+                    dmg1 = 0;
+                } else if (a.equals("start crying")) {
+                    takeDamage(2);
+                    dmg1 = 5;
+                }
+                break;
+        }
     }
+    
 }
