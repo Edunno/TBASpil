@@ -102,14 +102,15 @@ public class Controller {
         if (b.equals("isOther")) {
             if (a.equals("help")) {
                 flag = false;
-                ask.generalPrinter("type inventory");
-            } else if (a.equals("inventory")) {
+                ask.generalPrinter("Type inventory to access items.");
+            }
+            System.out.println(gamer.getItems().isEmpty());
+            if (a.equals("inventory")) {
                 if (!gamer.getItems().isEmpty()) {
                     for (int i = 0; i < gamer.getItems().size(); i++) {
                         ask.generalPrinter(gamer.getItems().get(i).getName());
                         ask.generalPrinter("- type \"exit\" to return.");
                     }
-                }
                 while (true) {
                     String itemReq = ask.inputRequest("Select Item to interact with: ");
                     if (itemReq.equals("exit")) {
@@ -124,6 +125,7 @@ public class Controller {
                             ask.inputRequest("No such item. Try again:");
                         }
                     }
+                }
                 }
             }
         }
