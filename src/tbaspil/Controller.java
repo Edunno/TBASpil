@@ -105,7 +105,8 @@ public class Controller {
         if (b.equals("isOther")) {
             if (a.equals("help")) {
                 flag = false;
-                ask.generalPrinter("Type inventory to access items.");
+                ask.generalPrinter("Type inventory to access items."
+                        + "");
             }
             if (a.equals("inventory")) {
                 if (!gamer.getItems().isEmpty()) {
@@ -118,14 +119,16 @@ public class Controller {
                     if (itemReq.equals("exit")) {
                         break;
                     }
+                    boolean checker = true;
                     for (int i = 0; i < gamer.getItems().size(); i++) {
-                        if (itemReq.equals(gamer.getItems().get(i))) {
+                        if (itemReq.equals(gamer.getItems().get(i).getName())) {
                             ask.printItem(gamer.getItems().get(i));
                             handleItem(gamer.getItems().get(i));
+                            checker = false;
                         }
-                        else {
-                            ask.inputRequest("No such item. Try again:");
-                        }
+                    }
+                    if (checker){
+                        ask.generalPrinter("No such item. Try again.");
                     }
                 }
                 }
