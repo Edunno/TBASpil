@@ -64,5 +64,5 @@ public class AustinPowers extends Monster {
                 break;
     }
     
-    
+    }
 }
