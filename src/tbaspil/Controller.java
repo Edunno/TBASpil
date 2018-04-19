@@ -102,8 +102,9 @@ public class Controller {
         if (b.equals("isOther")) {
             if (a.equals("help")) {
                 flag = false;
-                tuiText = ""; //Write some effing help text.
+                ask.generalPrinter("You can do a lot");
             } else if (b.equals("inventory")) {
+                
                 for (int i = 0; i < gamer.getItems().size(); i++) {
                     ask.generalPrinter(gamer.getItems().get(i).getName());
                     ask.generalPrinter("- type \"exit\" to return.");
@@ -148,28 +149,28 @@ public class Controller {
     private void handleItem(Item a) {
         if (a.isIsMainHand() || a.isIsOffHand()) {
             String itemUse = ask.inputRequest("Equip?(yes/no)");
-            if(itemUse.equals("yes")){
-                if(a.isIsMainHand()){
+            if (itemUse.equals("yes")) {
+                if (a.isIsMainHand()) {
                     gamer.setMainHand(a);
-                }
-                else {
+                } else {
                     gamer.setOffHand(a);
                 }
             }
-        }
-        else {
+        } else {
             String itemUse = ask.inputRequest("Use?(yes/no)");
-            if(itemUse.equals("yes")){
-                if(!a.isReUsable()){
-                    gamer.removeItem(a);
-                    useItem(a);
-                }
+            if (itemUse.equals("yes")) {
+
+                useItem(a);
             }
         }
     }
 
     private void useItem(Item a) {
-        
+        gamer.addMaxHealth(a.getHpBonus());
+        gamer.restoreHp(a.getHpRestore());
+        if (!a.isReUsable()) {
+            gamer.removeItem(a);
+        }
     }
 
 }

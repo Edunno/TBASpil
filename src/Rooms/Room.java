@@ -250,7 +250,7 @@ public class Room {
          doors.add("east");
          this.east = "darkChestRoom";
          actions.add("Grab");
-         fight = true;
+         //fight = true;
     }
     
     public void kitchenRoom() {

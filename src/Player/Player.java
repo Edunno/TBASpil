@@ -14,14 +14,15 @@ import java.util.ArrayList;
 public class Player {
 
     private String name;
-    private int health;
+    private int maxHealth;
+    private int hp;
     private ArrayList<Item> Items;
     private Item mainHand;
     private Item offHand;
 
     public Player(String name, int health) {
         this.name = name;
-        this.health = health;
+        this.maxHealth = health;
     }
 
     public String getName() {
@@ -33,11 +34,11 @@ public class Player {
     }
 
     public int getHealth() {
-        return health;
+        return hp;
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        this.maxHealth = health;
     }
 
     public ArrayList<Item> getItems() {
@@ -74,6 +75,19 @@ public class Player {
         if (offHand.isIsOffHand()) {
             this.offHand = offHand;
         }
+    }
+    public void takeDmg(int i){
+        hp -= i;
+        if (hp > maxHealth)
+            hp = maxHealth;
+    }
+    public void restoreHp(int i){
+        hp += i;
+        if (hp > maxHealth)
+            hp = maxHealth;
+    }
+    public void addMaxHealth(int i) {
+        maxHealth += i;
     }
 
 }
