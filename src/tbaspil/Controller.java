@@ -102,7 +102,7 @@ public class Controller {
         if (b.equals("isOther")) {
             if (a.equals("help")) {
                 flag = false;
-                tuiText = ""; //Write some effing help text.
+                ask.generalPrinter("You can do a lot");
             } else if (b.equals("inventory")) {
                 for (int i = 0; i < gamer.getItems().size(); i++) {
                     ask.generalPrinter(gamer.getItems().get(i).getName());
