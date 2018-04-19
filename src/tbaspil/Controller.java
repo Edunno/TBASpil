@@ -148,28 +148,28 @@ public class Controller {
     private void handleItem(Item a) {
         if (a.isIsMainHand() || a.isIsOffHand()) {
             String itemUse = ask.inputRequest("Equip?(yes/no)");
-            if(itemUse.equals("yes")){
-                if(a.isIsMainHand()){
+            if (itemUse.equals("yes")) {
+                if (a.isIsMainHand()) {
                     gamer.setMainHand(a);
-                }
-                else {
+                } else {
                     gamer.setOffHand(a);
                 }
             }
-        }
-        else {
+        } else {
             String itemUse = ask.inputRequest("Use?(yes/no)");
-            if(itemUse.equals("yes")){
-                if(!a.isReUsable()){
-                    gamer.removeItem(a);
-                    useItem(a);
-                }
+            if (itemUse.equals("yes")) {
+
+                useItem(a);
             }
         }
     }
 
     private void useItem(Item a) {
-        
+        gamer.addMaxHealth(a.getHpBonus());
+        gamer.restoreHp(a.getHpRestore());
+        if (!a.isReUsable()) {
+            gamer.removeItem(a);
+        }
     }
 
 }
