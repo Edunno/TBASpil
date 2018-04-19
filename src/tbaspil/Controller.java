@@ -11,6 +11,7 @@ import Rooms.Room;
 import tbaspil.presentation.TUI;
 import Player.Player;
 import Rooms.ActionList;
+import Rooms.ItemList;
 import Rooms.MonsterList;
 
 /**
@@ -28,6 +29,7 @@ public class Controller {
     private MonsterList mons = new MonsterList();
     private Monster currMonster;
     private String tuiText;
+    private ItemList itemCreate = new ItemList();
 
     public void startGame() {
         makeIntro();
@@ -37,6 +39,7 @@ public class Controller {
         createRoom("startRoom");
         while (true) {
             setCurrRoom();
+            gamer.addItem(itemCreate.getWoodSword());
             if (flag) {
                 tuiText = getInputFromTUI(currRoom.getFlavorText());
             } else if (!currRoom.isFight()) {
@@ -104,7 +107,6 @@ public class Controller {
                 flag = false;
                 ask.generalPrinter("Type inventory to access items.");
             }
-            System.out.println(gamer.getItems().isEmpty());
             if (a.equals("inventory")) {
                 if (!gamer.getItems().isEmpty()) {
                     for (int i = 0; i < gamer.getItems().size(); i++) {

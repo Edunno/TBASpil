@@ -16,7 +16,7 @@ public class Player {
     private String name;
     private int maxHealth;
     private int hp;
-    private ArrayList<Item> Items;
+    private ArrayList<Item> Items = new ArrayList();
     private Item mainHand;
     private Item offHand;
 
