@@ -124,10 +124,10 @@ public class Room {
     }
 
     public void woodRoom() {
-        this.flavorText = "You have entered the room.\n"
-                + "The room is made completely out of wood.\n"
-                + "You can smell its been newly restored and the only thing you can see, is a desk and a large wooden chair from its behind.\n"
-                + "You can hear something, heavily breathing from the chair and your first thought is that time your mom sneaked up on you while beating the meat.";
+        this.flavorText = "\"You have entered the room.\\n\"\n" 
+                + "The room is made completely out of wood.\\n\"\n" 
+                + "You can smell its been newly restored and the only thing you can see, is a desk and a large wooden chair from its behind.\\n\"\n" 
+                + "You can hear something, heavily breathing from the chair and your first thought is that time your mom sneaked up on you while beating the meat.\";";
 
 
         doors.add("south");
@@ -327,4 +327,8 @@ public class Room {
 
     }
         //hawtafix
+
+    Player getPlayer() {
+        return gamer;
+    }
 }
