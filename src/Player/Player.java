@@ -48,6 +48,9 @@ public class Player {
         //Lav check for om der er duplikater m.m.
         this.Items.add(newItem);
     }
+    public void removeItem(Item oldItem){
+        this.Items.remove(oldItem);
+    }
 
     public int attack() {
         return 0;
