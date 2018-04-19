@@ -104,6 +104,7 @@ public class Controller {
                 flag = false;
                 ask.generalPrinter("You can do a lot");
             } else if (b.equals("inventory")) {
+                
                 for (int i = 0; i < gamer.getItems().size(); i++) {
                     ask.generalPrinter(gamer.getItems().get(i).getName());
                     ask.generalPrinter("- type \"exit\" to return.");
