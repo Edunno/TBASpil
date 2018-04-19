@@ -66,7 +66,7 @@ public class Babysitter extends Monster {
                 break;
             case 6:
                 voiceAttack = "Aren't you cuttest one, young man";
-                dmg1 = dm2 + 0;
+                dmg1 = dmg2 + 0;
                 attackOptions.remove("attack");
                 attackOptions.add("Make out with babysitter");
                 break;
