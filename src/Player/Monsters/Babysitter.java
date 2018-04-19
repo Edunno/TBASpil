@@ -6,6 +6,7 @@
 package Player.Monsters;
 
 import Player.Monster;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -17,9 +18,15 @@ public class Babysitter extends Monster {
     private String voiceAttack;
     private int dmg1 = 0;
     private Random r = new Random();
+    private ArrayList attackOptions;
+    int rand;
 
     public Babysitter() {
         super(10, 1);
+        attackOptions.add("Attack");
+        attackOptions.add("Yell at babysitter");
+        attackOptions.add("Snarky comeback");
+        attackOptions.add("Start crying");
     }
 
     @Override
@@ -27,6 +34,7 @@ public class Babysitter extends Monster {
         voiceAttack();
         return dmg1;
     }
+
     @Override
     public void voiceAttack() {
         int rand = r.nextInt(5) + 1;
@@ -46,19 +54,155 @@ public class Babysitter extends Monster {
                 break;
             case 4:
                 voiceAttack = "Don't you roll your eyes at me, young man";
-                dmg1 =1;
+                dmg1 = 1;
+                attackOptions.remove("Snarky comeback");
+                attackOptions.add("Repeat in in a high pitch voice what babysitter said");
                 break;
             case 5:
                 voiceAttack = "I'm going to count to three and then you're in trouble, young man";
-                dmg1 =0;
+                dmg1 = 0;
                 break;
             case 6:
                 voiceAttack = "Aren't you cuttest one, young man";
-                dmg1 =0;
+                dmg1 = 0;
+                attackOptions.remove("attack");
+                attackOptions.add("Make out with babysitter");
                 break;
             default:
                 break;
         }
     }
 
+    public void attackOptions(String a) {
+        switch (rand) {
+            case 1:
+        switch (a) {
+            case "attack":
+                takeDamage(0);
+                dmg1 = 3;
+                break;
+            case "yell at babysitter":
+                takeDamage(1);
+                break;
+            case "Snarky comeback":
+                takeDamage(2);
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = -2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 2:
+        switch (a) {
+            case "attack":
+                takeDamage(0);
+                dmg1 = 3;
+                break;
+            case "yell at babysitter":
+                takeDamage(1);
+                dmg1 = 0;
+                break;
+            case "Snarky comeback":
+                takeDamage(3);
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = 2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 3:
+        switch (a) {
+            case "attack":
+                takeDamage(1);
+                dmg1 = 0;
+                break;
+            case "yell at babysitter":
+                takeDamage(1);
+                dmg1 = 1;
+                break;
+            case "Snarky comeback":
+                takeDamage(3);
+                dmg1 = 0;
+                break;
+            case "start crying":
+                takeDamage(2);
+                dmg1 = 2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 4:
+        switch (a) {
+            case "attack":
+                takeDamage(2);
+                dmg1 = 0;
+                break;
+            case "yell at babysitter":
+                takeDamage(2);
+                dmg1 = 0;
+                break;
+            case "Repeat in in a high pitch voice what babysitter said":
+                takeDamage(3);
+                dmg1 = 0;
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = 0;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 5:
+        switch (a) {
+            case "attack":
+                takeDamage(2);
+                dmg1 = 0;
+                break;
+            case "yell at babysitter":
+                takeDamage(3);
+                dmg1 = 0;
+                break;
+            case "Snarky comeback":
+                takeDamage(5);
+                dmg1 = 0;
+                break;
+            case "start crying":
+                takeDamage(0);
+                dmg1 = 2;
+                break;
+            default:
+                break;
+        }
+                break;
+
+            case 6:
+                if (a.equals("Make out with babysitter")) {
+                    takeDamage(10);
+                    dmg1 = 0;
+                } else if (a.equals("yell at babysitter")) {
+                    takeDamage(2);
+                    dmg1 = 0;
+                } else if (a.equals("Snarky comeback")) {
+                    takeDamage(3);
+                    dmg1 = 0;
+                } else if (a.equals("start crying")) {
+                    takeDamage(2);
+                    dmg1 = 5;
+                }
+                break;
+        }
+    }
+    
 }
