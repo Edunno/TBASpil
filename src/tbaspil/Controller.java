@@ -66,7 +66,7 @@ public class Controller {
     }
 
     public void createPlayer(String a) {
-        gamer = new Player(a, 100);
+        this.gamer = new Player(a, 100);
     }
 
     public void checkAction(String a) {
@@ -112,6 +112,9 @@ public class Controller {
                     if (item.equals("exit")) {
                         break;
                     }
+                    else if(true){
+                        
+                    }
                     //Lav en else der håndterer items og hvad der skal gøres ved dem. Skal kunne finde tingen i gamer.getItems ol.
                 }
             }
@@ -120,7 +123,8 @@ public class Controller {
 
     private void makeIntro() {
         this.intro
-                = "  ▄▄▄▄      ▄▄▄        ██████  ▓█████  ███▄ ▄███▓▓█████  ███▄    █   ▄▄▄█████▓\n"
+                = "                                                WELCOME TO:\n" 
+                + "  ▄▄▄▄      ▄▄▄        ██████  ▓█████  ███▄ ▄███▓▓█████  ███▄    █   ▄▄▄█████▓\n"
                 + "▓█████▄ ▒████▄    ▒██    ▒   ▓█    ▀ ▓██▒▀█▀ ██▒▓█    ▀  ██ ▀█   █ ▓      ██▒ ▓▒\n"
                 + "▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄    ▒███    ▓██     ▓██░▒███    ▓██  ▀█ ██▒▒   ▓██░ ▒░\n"
                 + "▒██░█▀  ░██▄▄▄▄██   ▒   ██▒▓█    ▄  ▒██     ▒██ ▒▓█   ▄  ▓██▒  ▐▌██▒░  ▓██▓ ░ \n"
@@ -129,7 +133,9 @@ public class Controller {
                 + "▒░▒   ░ ▒▒ ▒ ░░ ░▒  ░ ░ ░ ░  ░░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    \n"
                 + "  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n"
                 + "  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n"
-                + "        ░                                                                 ";
+                + "        ░                                                                 "
+                +"Intro:\n"
+                + "";
     }
 
     private String fightInTUI(Monster a) {
