@@ -11,6 +11,7 @@ import Rooms.Room;
 import tbaspil.presentation.TUI;
 import Player.Player;
 import Rooms.ActionList;
+import Rooms.ItemList;
 import Rooms.MonsterList;
 
 /**
@@ -28,6 +29,7 @@ public class Controller {
     private MonsterList mons = new MonsterList();
     private Monster currMonster;
     private String tuiText;
+    private ItemList itemCreate = new ItemList();
 
     public void startGame() {
         makeIntro();
@@ -37,6 +39,7 @@ public class Controller {
         createRoom("startRoom");
         while (true) {
             setCurrRoom();
+            gamer.addItem(itemCreate.getWoodSword());
             if (flag) {
                 tuiText = getInputFromTUI(currRoom.getFlavorText());
             } else if (!currRoom.isFight()) {
@@ -102,28 +105,32 @@ public class Controller {
         if (b.equals("isOther")) {
             if (a.equals("help")) {
                 flag = false;
-                ask.generalPrinter("type inventory");
-            } else if (a.equals("inventory")) {
+                ask.generalPrinter("Type inventory to access items."
+                        + "");
+            }
+            if (a.equals("inventory")) {
                 if (!gamer.getItems().isEmpty()) {
                     for (int i = 0; i < gamer.getItems().size(); i++) {
                         ask.generalPrinter(gamer.getItems().get(i).getName());
                         ask.generalPrinter("- type \"exit\" to return.");
                     }
-                }
                 while (true) {
                     String itemReq = ask.inputRequest("Select Item to interact with: ");
                     if (itemReq.equals("exit")) {
                         break;
                     }
+                    boolean checker = true;
                     for (int i = 0; i < gamer.getItems().size(); i++) {
-                        if (itemReq.equals(gamer.getItems().get(i))) {
+                        if (itemReq.equals(gamer.getItems().get(i).getName())) {
                             ask.printItem(gamer.getItems().get(i));
                             handleItem(gamer.getItems().get(i));
-                        }
-                        else {
-                            ask.inputRequest("No such item. Try again:");
+                            checker = false;
                         }
                     }
+                    if (checker){
+                        ask.generalPrinter("No such item. Try again.");
+                    }
+                }
                 }
             }
         }
@@ -141,9 +148,11 @@ public class Controller {
                 + "▒░▒   ░ ▒▒ ▒ ░░ ░▒  ░ ░ ░ ░  ░░  ░      ░ ░ ░  ░░ ░░   ░ ▒░    ░    \n"
                 + "  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n"
                 + "  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n"
-                + "        ░                                                                 "
+                + "        ░                                                                 \n"
                 + "Intro:\n"
-                + "";
+                + "If available, type: \"north\", \"south\", \"east\" or \"west\" to move to the room in tha direction."
+                + "You can type \"help\" at any time to get extra info."
+                + "Some options may not be displayed, but the most obvious actions are always available.";
     }
 
     private String fightInTUI(Monster a) {
@@ -163,7 +172,6 @@ public class Controller {
         } else {
             String itemUse = ask.inputRequest("Use?(yes/no)");
             if (itemUse.equals("yes")) {
-
                 useItem(a);
             }
         }

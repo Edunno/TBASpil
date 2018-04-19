@@ -44,26 +44,26 @@ public class TUI {
                 System.out.println(room.getActions().get(i - room.getDoors().size()));
             }
         }
-        String b = sc.next().toLowerCase();
+        String b = sc.nextLine().toLowerCase();
         return b;
     }
 
     public String falseInput() {
         System.out.println("Input is not elligeble. Please try again. ");
-        String a = sc.next().toLowerCase();
+        String a = sc.nextLine().toLowerCase();
         return a;
     }
 
     public String fightInput(Monster x) {
         System.out.println(x.getVoiceAttack());
 
-        String a = sc.next();
+        String a = sc.nextLine();
         return a;
     }
 
     public String inputRequest(String a) {
         System.out.println(a);
-        return sc.next();
+        return sc.nextLine();
     }
 
     public void printItem(Item a) { //Der mangler måske nogle ting her.
