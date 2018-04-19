@@ -5,6 +5,7 @@
  */
 package tbaspil;
 
+import Player.Item;
 import Player.Monster;
 import Rooms.Room;
 import tbaspil.presentation.TUI;
@@ -108,14 +109,16 @@ public class Controller {
                     ask.generalPrinter("- type \"exit\" to return.");
                 }
                 while (true) {
-                    String item = ask.inputRequest("Select Item to interact with: ");
-                    if (item.equals("exit")) {
+                    String itemReq = ask.inputRequest("Select Item to interact with: ");
+                    if (itemReq.equals("exit")) {
                         break;
                     }
-                    else if(true){
-                        
+                    for (int i = 0; i < gamer.getItems().size(); i++) {
+                        if (itemReq.equals(gamer.getItems().get(i))) {
+                            ask.printItem(gamer.getItems().get(i));
+                            handleItem(gamer.getItems().get(i));
+                        }
                     }
-                    //Lav en else der håndterer items og hvad der skal gøres ved dem. Skal kunne finde tingen i gamer.getItems ol.
                 }
             }
         }
@@ -123,7 +126,7 @@ public class Controller {
 
     private void makeIntro() {
         this.intro
-                = "                                                WELCOME TO:\n" 
+                = "                                                WELCOME TO:\n"
                 + "  ▄▄▄▄      ▄▄▄        ██████  ▓█████  ███▄ ▄███▓▓█████  ███▄    █   ▄▄▄█████▓\n"
                 + "▓█████▄ ▒████▄    ▒██    ▒   ▓█    ▀ ▓██▒▀█▀ ██▒▓█    ▀  ██ ▀█   █ ▓      ██▒ ▓▒\n"
                 + "▒██▒ ▄██▒██  ▀█▄  ░ ▓██▄    ▒███    ▓██     ▓██░▒███    ▓██  ▀█ ██▒▒   ▓██░ ▒░\n"
@@ -134,12 +137,39 @@ public class Controller {
                 + "  ░     ░   ░   ▒   ░  ░  ░     ░   ░      ░      ░      ░   ░ ░   ░      \n"
                 + "  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n"
                 + "        ░                                                                 "
-                +"Intro:\n"
+                + "Intro:\n"
                 + "";
     }
 
     private String fightInTUI(Monster a) {
         return ask.fightInput(a);
+    }
+
+    private void handleItem(Item a) {
+        if (a.isIsMainHand() || a.isIsOffHand()) {
+            String itemUse = ask.inputRequest("Equip?(yes/no)");
+            if(itemUse.equals("yes")){
+                if(a.isIsMainHand()){
+                    gamer.setMainHand(a);
+                }
+                else {
+                    gamer.setOffHand(a);
+                }
+            }
+        }
+        else {
+            String itemUse = ask.inputRequest("Use?(yes/no)");
+            if(itemUse.equals("yes")){
+                if(!a.isReUsable()){
+                    gamer.removeItem(a);
+                    useItem(a);
+                }
+            }
+        }
+    }
+
+    private void useItem(Item a) {
+        
     }
 
 }

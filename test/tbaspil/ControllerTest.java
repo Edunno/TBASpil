@@ -19,6 +19,10 @@ import static org.junit.Assert.*;
  */
 public class ControllerTest {
     
+     private Player gamer;
+     private Controller instance = new Controller();
+     private Actions ch;
+    
     public ControllerTest() {
     }
     
@@ -44,7 +48,6 @@ public class ControllerTest {
     @Test
     public void testStartGame() {
         System.out.println("startGame");
-        Controller instance = new Controller();
         instance.startGame();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -57,7 +60,6 @@ public class ControllerTest {
     public void testGetInputFromTUI() {
         System.out.println("getInputFromTUI");
         String a = "";
-        Controller instance = new Controller();
         String expResult = "";
         String result = instance.getInputFromTUI(a);
         assertEquals(expResult, result);
@@ -72,7 +74,6 @@ public class ControllerTest {
     public void testCreateRoom() {
         System.out.println("createRoom");
         String a = "";
-        Controller instance = new Controller();
         instance.createRoom(a);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -84,7 +85,6 @@ public class ControllerTest {
     @Test
     public void testSetCurrRoom() {
         System.out.println("setCurrRoom");
-        Controller instance = new Controller();
         instance.setCurrRoom();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -95,12 +95,10 @@ public class ControllerTest {
      */
     @Test
     public void testCreatePlayer() {
-        System.out.println("createPlayer");
-        String a = "";
-        Controller instance = new Controller();
+        String a = "casper";
+       // Player gamer = new Player(null, 100);
         instance.createPlayer(a);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(gamer.getName(), a);
     }
 
     /**
@@ -108,12 +106,9 @@ public class ControllerTest {
      */
     @Test
     public void testCheckAction() {
-        System.out.println("checkAction");
         String a = "";
-        Controller instance = new Controller();
         instance.checkAction(a);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(a, instance.equals(a));
     }
     
 }
