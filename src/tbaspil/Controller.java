@@ -102,11 +102,13 @@ public class Controller {
         if (b.equals("isOther")) {
             if (a.equals("help")) {
                 flag = false;
-                ask.generalPrinter("You can do a lot");
-            } else if (b.equals("inventory")) {
-                for (int i = 0; i < gamer.getItems().size(); i++) {
-                    ask.generalPrinter(gamer.getItems().get(i).getName());
-                    ask.generalPrinter("- type \"exit\" to return.");
+                ask.generalPrinter("type inventory");
+            } else if (a.equals("inventory")) {
+                if (!gamer.getItems().isEmpty()) {
+                    for (int i = 0; i < gamer.getItems().size(); i++) {
+                        ask.generalPrinter(gamer.getItems().get(i).getName());
+                        ask.generalPrinter("- type \"exit\" to return.");
+                    }
                 }
                 while (true) {
                     String itemReq = ask.inputRequest("Select Item to interact with: ");
@@ -117,6 +119,9 @@ public class Controller {
                         if (itemReq.equals(gamer.getItems().get(i))) {
                             ask.printItem(gamer.getItems().get(i));
                             handleItem(gamer.getItems().get(i));
+                        }
+                        else {
+                            ask.inputRequest("No such item. Try again:");
                         }
                     }
                 }
