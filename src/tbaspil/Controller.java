@@ -59,7 +59,7 @@ public class Controller {
                     fight = new Fight(gamer, currMonster);
                     startFight = false;
                 }
-                tuiText = fightInTUI(currMonster);
+                checkFight();
             }
             checkAction(tuiText);
 
@@ -185,19 +185,36 @@ public class Controller {
                     if (itemReq.equals("exit")) {
                         break;
                     }
-                    boolean checker = false;     //Tests wanted item up against items in the inventory. Only switches if the requested item is found.
                     for (int i = 0; i < gamer.getItems().size(); i++) {
                         if (itemReq.equals(gamer.getItems().get(i).getName())) {
                             ask.printItem(gamer.getItems().get(i));
                             handleItem(gamer.getItems().get(i));
-                            checker = true;
+                            break;
                         }
                     }
-                    if (!checker) {
-                        ask.generalPrinter("No such item. Try again.");
-                    }
+                    ask.generalPrinter("No such item. Try again.");
                 }
             }
+        }
+    }
+
+    private void checkFight() {
+        while (true) {
+            String a = tuiText = fightInTUI(currMonster);
+            for (int i = 0; i < currMonster.getAttackOptions().size(); i++) {
+                if (a.equals(currMonster.getAttackOptions().get(i))) {
+                    if(a.equals("attack")){
+                        //Handle in specific method/class
+                    }
+                    else {
+                        currMonster.attackOptions(a);
+                    }
+                }
+                else if(a.equals("help") || a.equals("inventory")){
+                    otherInputs(a);
+                }
+            }
+            ask.generalPrinter("No such input. Try again.");
         }
     }
 
