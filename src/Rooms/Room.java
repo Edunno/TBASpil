@@ -141,7 +141,7 @@ public class Room {
 
     public void darkChestRoom() {
         this.flavorText = "You have entered the room.\n"
-                + "The room is completely dark, except of a little stream of light, shining on a small shining chest.\n"
+                + "The room is completely dark, except of a little stream of light, that enlightens a small shining chest.\n"
                 + "There is tones from a little chime playing in the background. The room smells like moist.\n"
                 + "You are thinking about all those scenarios from Indiana Jones, where he removes the artifact.";
         
@@ -160,7 +160,9 @@ public class Room {
                 + "The room is filled with pictures on the walls of hands making different signs and Indian rugs filling the floor. \n"
                 + "There is two dark figures with cloaks on, mumbling facing the pictures.\n"
                 + "*Sniff* *Sniff* - The rugs are giving the smell of curry and cardamom.\n"
-                + "The dark figures reminds you of something, but you don’t know what.";
+                + "The dark figures reminds you of something, but you don’t know what.\n"
+                + "It's Luke Skywalker and Jamie Lannister! They look at your hands, like Winnie the Pooh looks at honey.\n"
+                + "Luke lights up his lightsaber and Jamie pulls out his sword. Get ready to fight!";
 
 
         doors.add("south");
@@ -197,10 +199,11 @@ public class Room {
     }
 
     public void studio54() {
-        this.flavorText = "Ohhhh my what is this, GROOOVY BABE, you feel the urge to dance!\n"
+        this.flavorText = "You have entered the room.\n"
+                + "Ohhhh my what is this, GROOOVY BABY, you feel the urge to dance!\n"
                 + "There is disco lights, music playing and the smell of sweat. Yes, you are back, this is studio54!\n"
                 + "While you gaze around you see:\n"
-                + "A bar with drinks, disco ball hanging from the celing and turning, Austin FUCKING Powers whinking at you and a ton of cocain and other recreational drugs";
+                + "A bar with drinks, disco ball hanging from the ceiling, Austin FUCKING Powers waving to you. He is standing next to a mountain of cocain and other recreational drugs.";
         
         doors.add("east");
         doors.add("west");
@@ -210,12 +213,14 @@ public class Room {
     }
 
     public void saunaRoom() {
-        this.flavorText = "as you enter the hot steaming room, you meet a smell of eaculyptus and old-man-ball-sweat.\n"
+        this.flavorText = "You have entered the room.\n"
+                + "as you enter, you are met by a hot steam, the smell of eaculyptus and old-men-balls-sweat.\n"
                 + "You fell the sweat starting to emerge.\n"
                 + "The room is made with staircase seats up towards each corner, providing a nice place to sit down and break a sweat.\n"
-                + "In the middle of the room there is a sauna oven with filled with stones on the top.\n"
-                + "From the ceeling is dripping water down on the stones making the sound: tssssshhhh. On the floor is there also a bucket with water, two birch branches and a spoon.\n"
-                + "in the top corner three fat Russians are sitting and looking at you...";
+                + "In the middle of the room there is a sauna oven, with stones on top.\n"
+                + "Water from the ceiling are dripping on the stones, making the sound: tssssshhhh. \n"
+                + "There is a bucket with water, two birch branches and a spoon.\n"
+                + "In the top corner, three fat Russians staring at you...";
 
         doors.add("south");
         this.south = "darkChestRoom";
@@ -223,9 +228,10 @@ public class Room {
     }
 
     public void chiliRoom() {
-        this.flavorText = "as you walk in the room, get the smell of newly cut grass and spicy lemon.\n"
-                + "A voice ermerges: HI I am ChiliKlaus. Do you want surstrømning or just regular caroline aka carolina ripper?\n"
-                + "This funny litle leprechaun looking man with black beard is the only thing you can focus on in this room";
+        this.flavorText = "You have entered the room.\n"
+                + "You are met with the smell of newly cut grass and spicy lemon.\n"
+                + "A voice ermerges: HI I am ChiliKlaus. Do you want surstrømning or just regular caroline aka carolina reaper?\n"
+                + "This funny little leprechaun looking man with black beard is the only thing you can focus on in this room";
         
         doors.add("north");
         doors.add("east");
@@ -236,15 +242,18 @@ public class Room {
 
     public void startRoom() {
         String a = gamer.getName();
-        this.flavorText = "As you enter your parents’ bedroom, you notice something you haven't before…\n"
-                + "The bookshelf where all your baby pictures is standing is secret door with a staircase down.\n"
-                + "You call out: Moooooaaaam what is this?! From the deep you hear somebody call " + a + ".\n"
-                + "As you lean forward to listen, you fall in and the door slams behind you and keep falling.\n"
+        this.flavorText = "You have entered the room.\n"
+                + "As you enter your parents’ bedroom, you notice something you haven't before…\n"
+                + "At the bookshelf where all your baby pictures are placed, there is a beam of light and reveals a hidden door.\n"
+                + "You call out: Muuuuuuum what is this?! \n"
+                + "From the deep you hear somebody whisper " + a + ".\n"
+                + "As you lean forward, trying to hear better, you slip and fall down the stairs. You also hear the door slams behind you.\n"
                 + "\n"
                 + "Ahhhhhhhhhhhhhhhhh!!!\n"
                 + "\n"
-                + "BAM – you land on the floor. Confused you look around, where are you? What is this?\n"
-                + "The room is all red, there to couches, and a bell on the wall starts ringing.\n"
+                + "BAM – you are at the end. Confused, but surprisingly not hurt, you look around, where are you? What is this?\n"
+                + "The room is all red, there is two couches.n\""
+                + "A bell on the wall starts ringing.\n"
                 + "In comes a little gimp asking you to take shoes of, because he is horny and he loves to fuck shoes and he likes your shoes.";
          
          doors.add("east");
@@ -254,9 +263,10 @@ public class Room {
     }
     
     public void kitchenRoom() {
-        this.flavorText = "As you enter the room, there is the sweet smell of Cinnamon and sweet apples.\n"
-                + "This reminds you of your grandmother’s place. You know, the place your parents keep teasing you with, the place you that you were made.\n"
-                + "Some might say that you are not fully baked, but you know better.";
+        this.flavorText = "You have entered the room.\n"
+                + "As you enter the room, there is a sweet smell of cinnamon and sweet apples.\n"
+                + "This reminds you of your grandmother’s place. You know, the place your parents keep teasing you with, the place you that you were concieved.\n"
+                + "Some might say that you are not fully baked, but you know best.";
         
         doors.add("north");
         doors.add("west");
@@ -302,7 +312,8 @@ public class Room {
 
     }
         public void sarajevo1910() {
-        this.flavorText = "You sit outside a café. It looks like the early 1900's.\n"
+        this.flavorText = "You have entered the room.\n"
+                + "You sit outside a café. It looks like the early 1900's.\n"
                 + "The café you sit in front of is placed in what looks like an old european city, just next to a bridge crossing a river close to you.\n"
                 + "On your plate is a sandwhich, a couple of bites taken from it. You suppose it's yours, as no one else is at the café.\n"
                 + "You are wearing a cap and a thick wool coat, and as you feel it, you notice a gun in your right pocket. It's a small clip pistol.\n"

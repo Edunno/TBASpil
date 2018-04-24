@@ -157,7 +157,9 @@ public class RoomTest {
                 + "The room is filled with pictures on the walls of hands making different signs and Indian rugs filling the floor. \n"
                 + "There is two dark figures with cloaks on, mumbling facing the pictures.\n"
                 + "*Sniff* *Sniff* - The rugs are giving the smell of curry and cardamom.\n"
-                + "The dark figures reminds you of something, but you don’t know what.", rum1.getFlavorText());
+                + "The dark figures reminds you of something, but you don’t know what.\n"
+                + "It's Luke Skywalker and Jamie Lannister! They look at your hands, like Winnie the Pooh looks at honey.\n"
+                + "Luke lights up his lightsaber and Jamie pulls out his sword. Get ready to fight!", rum1.getFlavorText());
     }
 
     /**
@@ -198,10 +200,10 @@ public class RoomTest {
          Player gamer = new Player("Yrsa", 100);
        Room rum1 = new Room("studio54", gamer);
        assertEquals("Yrsa", rum1.getPlayer().getName());
-       assertEquals("Ohhhh my what is this, GROOOVY BABE, you feel the urge to dance!\n"
+       assertEquals("Ohhhh my what is this, GROOOVY BABY, you feel the urge to dance!\n"
                 + "There is disco lights, music playing and the smell of sweat. Yes, you are back, this is studio54!\n"
                 + "While you gaze around you see:\n"
-                + "A bar with drinks, disco ball hanging from the celing and turning, Austin FUCKING Powers whinking at you and a ton of cocain and other recreational drugs", rum1.getFlavorText());
+                + "A bar with drinks, disco ball hanging from the ceiling, Austin FUCKING Powers waving to you. He is standing next to a mountain of cocain and other recreational drugs.", rum1.getFlavorText());
     }
 
     /**

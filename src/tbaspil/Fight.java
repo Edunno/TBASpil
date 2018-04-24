@@ -15,14 +15,13 @@ public class Fight {
 
     Player p; // We need a Player object for the fight
     Monster m; // We also need a monster object
-    boolean fightInProgress; // this boolean is used to signal whether theres a fight in progress or not
+    boolean fightInProgress = true; // this boolean is used to signal whether theres a fight in progress or not
     boolean isPlayerDead = false;
 
      
-    public Fight(Player p, Monster m, boolean fightInProgress) {
+    public Fight(Player p, Monster m) {
         this.p = p;
         this.m = m;
-        this.fightInProgress = fightInProgress;
     }
 
     // Attack method calls the Monster objects takeDamage() method and calculates all the item bonuses to decied how much damage the attack does
