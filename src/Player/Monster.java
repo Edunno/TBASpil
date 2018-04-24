@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Esben
  */
-public class Monster {
+public abstract class Monster {
     private String name;
     private int hp;
     private int dmg;
@@ -23,6 +23,7 @@ public class Monster {
         this.hp = hp;
         this.dmg = dmg;
         this.attackOptions.add("attack");
+        this.attackOptions.add("Flee");
     }
     
     public int attack(){
@@ -55,5 +56,7 @@ public class Monster {
     public ArrayList getAttackOptions() {
         return attackOptions;
     }
+    
+    public abstract void attackOptions(String str);
     
 }
