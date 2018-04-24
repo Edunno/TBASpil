@@ -17,7 +17,7 @@ public class Rioter extends Monster {
     private int burnTimer;
 
     public Rioter() {
-        super(10, 2);
+        super("Rioter", 10, 2);
     }
 
     @Override
