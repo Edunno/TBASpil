@@ -12,12 +12,14 @@ import java.util.ArrayList;
  * @author Esben
  */
 public class Monster {
+    private String name;
     private int hp;
     private int dmg;
     private String voiceAttack;
     private ArrayList attackOptions;
 
-    public Monster(int hp, int dmg) {
+    public Monster(String name, int hp, int dmg) {
+        this.name = name;
         this.hp = hp;
         this.dmg = dmg;
         this.attackOptions.add("attack");
@@ -29,6 +31,10 @@ public class Monster {
 
     public int getDmg() {
         return dmg;
+    }
+    
+    public String getName(){
+        return name;
     }
     
     public void takeDamage(int i){

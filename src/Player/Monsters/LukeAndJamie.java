@@ -16,8 +16,8 @@ public class LukeAndJamie extends Monster {
     private Random r = new Random();
     private int rand;
     
-    public LukeAndJamie(int hp, int dmg) {
-        super(20, dmg);
+    public LukeAndJamie() {
+        super("Luke and Jamie", 20, 2);
     }
 
     @Override

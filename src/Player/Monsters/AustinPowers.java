@@ -22,12 +22,12 @@ public class AustinPowers extends Monster {
     private ArrayList attackOptions;
     private int rand;
 
-    public AustinPowers(int hp, int dmg) {
-        super(20, dmg);
+    public AustinPowers() {
+        super("Austin Powers", 20, 2);
         attackOptions.add("attack");
         attackOptions.add("Do drugs");
         attackOptions.add("Dance off");
-
+        
     }
     
     @Override

@@ -23,7 +23,7 @@ public class Babysitter extends Monster {
     int rand;
 
     public Babysitter() {
-        super(10, 0);
+        super("Babysitter", 10, 0);
         attackOptions.add("attack");
         attackOptions.add("Yell at babysitter");
         attackOptions.add("Snarky comeback");
@@ -38,7 +38,7 @@ public class Babysitter extends Monster {
 
     @Override
     public void voiceAttack() {
-        int rand = r.nextInt(5) + 1;
+        this.rand = r.nextInt(5) + 1;
         dmg1 = 0;
         switch (rand) {
             case 1:
