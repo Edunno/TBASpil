@@ -22,30 +22,37 @@ public class Controller {
 
     private Room currRoom;
     private Room nextRoom;
-    private TUI ask = new TUI();
+    private TUI ask;
     private Player gamer;
     private boolean flag = true;
     private String intro;
-    private MonsterList mons = new MonsterList();
+    private MonsterList mons;
     private Monster currMonster;
     private String tuiText;
-    private ItemList itemCreate = new ItemList();
+    private ItemList itemCreate;
 
+    /*
+    startGame initialises the classes needed for reference and data holding in Controller
+    */
+    
     public void startGame() {
-        makeIntro();
+        ask = new TUI();
+        mons = new MonsterList();
+        itemCreate = new ItemList();
+        makeIntro(); //Generates te intro to be used in next line.
         ask.generalPrinter(intro);
-        String a = ask.getName();
+        String a = ask.getName(); //Gets the name that the player types from the TUI.
         createPlayer(a);
-        createRoom("startRoom");
+        createRoom("startRoom"); //Creates the startRoom, and sets it up so it can be transferred to currentRoom.
         while (true) {
             setCurrRoom();
-            gamer.addItem(itemCreate.getWoodSword());
-            if (flag) {
+//            gamer.addItem(itemCreate.getWoodSword()); //Test item.
+            if (flag) { //Flag decides whether or not the flavor text from the currentRoom should be shown. It gets disabled if the player satys in a room.
                 tuiText = getInputFromTUI(currRoom.getFlavorText());
-            } else if (!currRoom.isFight()) {
+            } else if (!currRoom.isFight()) { //Runs the room normally(but without flavor text), if there is no fight.
                 tuiText = getInputFromTUI("");
             }
-            if (currRoom.isFight()) {
+            if (currRoom.isFight()) { //Switches over to combat mode, if the room contains a fight.
                 currMonster = mons.makeMonster(currRoom.getMonster());
                 tuiText = fightInTUI(currMonster);
             }
@@ -76,7 +83,7 @@ public class Controller {
     public void checkAction(String a) {
         Actions ch = new Actions(a, currRoom);
         String b = ch.checkAction();
-        while (b.equals("falseAction")) {
+        while (b.equals("falseAction")) { //Note that if the returned String "b" is "falseAction", the original String "a" is disregarded.
             b = ask.falseInput();
             ch.setAction(b);
             b = ch.checkAction();
@@ -102,37 +109,8 @@ public class Controller {
             nextRoom = al.doAction(a, currRoom);
             flag = false;
         }
-        if (b.equals("isOther")) {
-            if (a.equals("help")) {
-                flag = false;
-                ask.generalPrinter("Type inventory to access items."
-                        + "");
-            }
-            if (a.equals("inventory")) {
-                if (!gamer.getItems().isEmpty()) {
-                    for (int i = 0; i < gamer.getItems().size(); i++) {
-                        ask.generalPrinter(gamer.getItems().get(i).getName());
-                        ask.generalPrinter("- type \"exit\" to return.");
-                    }
-                while (true) {
-                    String itemReq = ask.inputRequest("Select Item to interact with: ");
-                    if (itemReq.equals("exit")) {
-                        break;
-                    }
-                    boolean checker = true;
-                    for (int i = 0; i < gamer.getItems().size(); i++) {
-                        if (itemReq.equals(gamer.getItems().get(i).getName())) {
-                            ask.printItem(gamer.getItems().get(i));
-                            handleItem(gamer.getItems().get(i));
-                            checker = false;
-                        }
-                    }
-                    if (checker){
-                        ask.generalPrinter("No such item. Try again.");
-                    }
-                }
-                }
-            }
+        if (b.equals("isOther")) { //Treats the a input if it is help or inventory.
+            otherInputs(a);
         }
     }
 
@@ -183,6 +161,39 @@ public class Controller {
         if (!a.isReUsable()) {
             gamer.removeItem(a);
         }
+    }
+
+    private void otherInputs(String a) {
+        if (a.equals("help")) {
+                flag = false;
+                ask.generalPrinter("Type inventory to access items."
+                        + "");
+            }
+            if (a.equals("inventory")) {
+                if (!gamer.getItems().isEmpty()) {
+                    for (int i = 0; i < gamer.getItems().size(); i++) {     //Prints available items in invetory
+                        ask.generalPrinter(gamer.getItems().get(i).getName());
+                        ask.generalPrinter("- type \"exit\" to return.");
+                    }
+                while (true) {
+                    String itemReq = ask.inputRequest("Select Item to interact with: ");
+                    if (itemReq.equals("exit")) {
+                        break;
+                    }
+                    boolean checker = true;     //Tests wanted item up against items in the inventory. Only switches if the requested item is found.
+                    for (int i = 0; i < gamer.getItems().size(); i++) {
+                        if (itemReq.equals(gamer.getItems().get(i).getName())) {
+                            ask.printItem(gamer.getItems().get(i));
+                            handleItem(gamer.getItems().get(i));
+                            checker = false;
+                        }
+                    }
+                    if (checker){
+                        ask.generalPrinter("No such item. Try again.");
+                    }
+                }
+                }
+            }
     }
 
 }
