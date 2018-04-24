@@ -30,11 +30,12 @@ public class Controller {
     private Monster currMonster;
     private String tuiText;
     private ItemList itemCreate;
+    private Fight fight;
+    private boolean startFight = true;
 
     /*
     startGame initialises the classes needed for reference and data holding in Controller
-    */
-    
+     */
     public void startGame() {
         ask = new TUI();
         mons = new MonsterList();
@@ -54,6 +55,10 @@ public class Controller {
             }
             if (currRoom.isFight()) { //Switches over to combat mode, if the room contains a fight.
                 currMonster = mons.makeMonster(currRoom.getMonster());
+                if (startFight) {
+                    fight = new Fight(gamer, currMonster);
+                    startFight = false;
+                }
                 tuiText = fightInTUI(currMonster);
             }
             checkAction(tuiText);
@@ -165,16 +170,16 @@ public class Controller {
 
     private void otherInputs(String a) {
         if (a.equals("help")) {
-                flag = false;
-                ask.generalPrinter("Type inventory to access items."
-                        + "");
-            }
-            if (a.equals("inventory")) {
-                if (!gamer.getItems().isEmpty()) {
-                    for (int i = 0; i < gamer.getItems().size(); i++) {     //Prints available items in invetory
-                        ask.generalPrinter(gamer.getItems().get(i).getName());
-                        ask.generalPrinter("- type \"exit\" to return.");
-                    }
+            flag = false;
+            ask.generalPrinter("Type inventory to access items."
+                    + "");
+        }
+        if (a.equals("inventory")) {
+            if (!gamer.getItems().isEmpty()) {
+                for (int i = 0; i < gamer.getItems().size(); i++) {     //Prints available items in invetory
+                    ask.generalPrinter(gamer.getItems().get(i).getName());
+                    ask.generalPrinter("- type \"exit\" to return.");
+                }
                 while (true) {
                     String itemReq = ask.inputRequest("Select Item to interact with: ");
                     if (itemReq.equals("exit")) {
@@ -188,12 +193,12 @@ public class Controller {
                             checker = true;
                         }
                     }
-                    if (!checker){
+                    if (!checker) {
                         ask.generalPrinter("No such item. Try again.");
                     }
                 }
-                }
             }
+        }
     }
 
 }
