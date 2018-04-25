@@ -13,6 +13,7 @@ import Player.Player;
 import Rooms.ActionList;
 import Rooms.ItemList;
 import Rooms.MonsterList;
+import java.util.ArrayList;
 
 /**
  *
@@ -54,7 +55,7 @@ public class Controller {
             } else if (!currRoom.isFight()) { //Runs the room normally(but without flavor text), if there is no fight.
                 tuiText = getInputFromTUI("");
             }
-            if (currRoom.isFight()) { //Switches over to combat mode, if the room contains a fight.
+            if (currRoom.isFight() && !checkIfDefeated(gamer.getMonstersDefeated())) { //Switches over to combat mode, if the room contains a fight and the monster is not defeated.
                 currMonster = mons.makeMonster(currRoom.getMonster(), gamer);
                 fight = new Fight(gamer, currMonster);
                 ask.printMonsterGreet(currMonster);
@@ -76,8 +77,9 @@ public class Controller {
                         //Slut spillet og skriv player highscore
                     }
                 }
-                if(currMonster.getHp() <= 0){
+                if (currMonster.getHp() <= 0) {
                     ask.printMonsterDefeat(currMonster);
+                    gamer.addDefeatedMonster(currMonster);
                 }
                 currRoom.setFight(false);
             }
@@ -219,6 +221,15 @@ public class Controller {
         if (b.equals("isOther")) { //Treats the a input if it is help or inventory.
             otherInputs(a);
         }
+    }
+
+    private boolean checkIfDefeated(ArrayList<Monster> l) {
+        for (int i = 0; i < l.size(); i++) {
+            if (l.get(i).getName().equals(currMonster.getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
