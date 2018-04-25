@@ -17,10 +17,10 @@ public class Rioter extends Monster {
     private int burnTimer;
 
     public Rioter() {
-        super("Rioter", 10, 2);
+        super("Rioter", 10, 2, 40);
     }
 
-    @Override
+
     public int attack() {
         System.out.print("The Rioter attacks you ");
         int dmg = 0;

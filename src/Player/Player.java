@@ -16,6 +16,8 @@ public class Player {
     private String name;
     private int maxHealth;
     private int hp;
+    private int score;
+    private ArrayList<Monster> monstersDefeated = new ArrayList();
     private ArrayList<Item> Items = new ArrayList();
     private Item mainHand;
     private Item offHand;
@@ -90,4 +92,19 @@ public class Player {
         maxHealth += i;
     }
     
+    public int getScore(){
+        return score;
+    }
+    
+    public void setScore(int i){
+        score+=i;
+    }
+    
+    public void addDefeatedMonster(Monster m){
+        monstersDefeated.add(m);
+    }
+    
+    public ArrayList<Monster> getMonstersDefeated(){
+        return monstersDefeated;
+    }
 }

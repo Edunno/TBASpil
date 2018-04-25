@@ -21,14 +21,15 @@ public class Ragnaros extends Monster {
     String voiceAttack;
     
     
+    
     public Ragnaros(){
-        super("Ragnaros, the Fire Lord", 50, 5);
+        super("Ragnaros, the Fire Lord", 50, 5, 50);
         attackOptions.add("Spit");
         attackOptions.add("Pee");
         attackOptions.add("Fire extinguisher");
     }
     
-       @Override
+
     public void voiceAttack() {
         rand =  r.nextInt(2)+1;
         switch (rand) {
@@ -59,5 +60,6 @@ public class Ragnaros extends Monster {
     }
     
     }
-    }
+}
+
 

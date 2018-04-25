@@ -23,7 +23,7 @@ public class AustinPowers extends Monster {
     private int rand;
 
     public AustinPowers() {
-        super("Austin Powers", 20, 2);
+        super("Austin Powers", 20, 2, 50);
         attackOptions.add("attack");
         attackOptions.add("Do drugs");
         attackOptions.add("Dance off");
