@@ -30,7 +30,7 @@ public abstract class Monster {
         this.monsterScore = monsterScore;
         this.attackOptions.add("attack");
         this.attackOptions.add("Flee");
-        this.voiceAttack = "The monster attacks you!";
+        this.voiceAttack = name + " attacks you!";
         this.monsterGreetings = "The monster greets you..";
         this.monsterDefeat = "The monster is defeated!";
         
