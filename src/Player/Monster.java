@@ -20,11 +20,14 @@ public abstract class Monster {
     private String monsterGreetings;
     private String monsterDefeat;
     private ArrayList attackOptions;
-
-    public Monster(String name, int hp, int dmg) {
+    private int monsterScore;
+    
+    
+    public Monster(String name, int hp, int dmg, int monsterScore) {
         this.name = name;
         this.hp = hp;
         this.dmg = dmg;
+        this.monsterScore = monsterScore;
         this.attackOptions.add("attack");
         this.attackOptions.add("Flee");
         this.voiceAttack = "The monster attacks you!";
@@ -63,6 +66,10 @@ public abstract class Monster {
     
     public String getMonsterDefeat(){
         return monsterDefeat;
+    }
+    
+    public int getMonsterScore(){
+        return monsterScore;
     }
 
     public ArrayList getAttackOptions() {
