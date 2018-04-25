@@ -32,6 +32,7 @@ public class Controller {
     private ItemList itemCreate;
     private Fight fight;
     private boolean startFight = true;
+    private boolean gameRunning = true;
 
     /*
     startGame initialises the classes needed for reference and data holding in Controller
@@ -45,7 +46,7 @@ public class Controller {
         String a = ask.getName(); //Gets the name that the player types from the TUI.
         createPlayer(a);
         createRoom("startRoom"); //Creates the startRoom, and sets it up so it can be transferred to currentRoom.
-        while (true) {
+        while (gameRunning) {
             setCurrRoom();
 //            gamer.addItem(itemCreate.getWoodSword()); //Test item.
             if (flag) { //Flag decides whether or not the flavor text from the currentRoom should be shown. It gets disabled if the player satys in a room.
@@ -54,15 +55,29 @@ public class Controller {
                 tuiText = getInputFromTUI("");
             }
             if (currRoom.isFight()) { //Switches over to combat mode, if the room contains a fight.
-                currMonster = mons.makeMonster(currRoom.getMonster(),gamer);
-                if (startFight) {
-                    fight = new Fight(gamer, currMonster);
-                    startFight = false;
+                currMonster = mons.makeMonster(currRoom.getMonster(), gamer);
+                fight = new Fight(gamer, currMonster);
+                while (true) {
+                    tuiText = fightInTUI(currMonster);
+                    String b = fight.checkFight(tuiText);
+                    while (b.equals("falseAction")) { //Note that if the returned String "b" is "falseAction", the original String "a" is disregarded.
+                        tuiText = fightInTUI(currMonster);
+                        b = fight.checkFight(tuiText);
+                    }
+                    if (b.equals("isOther")) {
+                        actOnCheck(tuiText, b);
+                    }
+                    currMonster = fight.getMonster();
+                    if (!fight.isFightInProgress()) {
+                        break;
+                    }
+                    if (fight.isIsPlayerDead()) {
+                        //Slut spillet og skriv player highscore
+                    }
                 }
-                checkFight();
+                currRoom.setFight(false);
             }
             checkAction(tuiText);
-
         }
     }
 
@@ -93,30 +108,7 @@ public class Controller {
             ch.setAction(b);
             b = ch.checkAction();
         }
-        if (b.equals("north")) {
-            createRoom(currRoom.getNorth());
-            flag = true;
-        }
-        if (b.equals("south")) {
-            createRoom(currRoom.getSouth());
-            flag = true;
-        }
-        if (b.equals("east")) {
-            createRoom(currRoom.getEast());
-            flag = true;
-        }
-        if (b.equals("west")) {
-            createRoom(currRoom.getWest());
-            flag = true;
-        }
-        if (b.equals("isAction")) {
-            ActionList al = new ActionList();
-            nextRoom = al.doAction(a, currRoom);
-            flag = false;
-        }
-        if (b.equals("isOther")) { //Treats the a input if it is help or inventory.
-            otherInputs(a);
-        }
+        actOnCheck(a, b);
     }
 
     private void makeIntro() {
@@ -198,23 +190,30 @@ public class Controller {
         }
     }
 
-    private void checkFight() {
-        while (true) {
-            String a = tuiText = fightInTUI(currMonster);
-            for (int i = 0; i < currMonster.getAttackOptions().size(); i++) {
-                if (a.equals(currMonster.getAttackOptions().get(i))) {
-                    if(a.equals("attack")){
-                        //Handle in specific method/class
-                    }
-                    else {
-                        currMonster.attackOptions(a);
-                    }
-                }
-                else if(a.equals("help") || a.equals("inventory")){
-                    otherInputs(a);
-                }
-            }
-            ask.generalPrinter("No such input. Try again.");
+    private void actOnCheck(String a, String b) {
+        if (b.equals("north")) {
+            createRoom(currRoom.getNorth());
+            flag = true;
+        }
+        if (b.equals("south")) {
+            createRoom(currRoom.getSouth());
+            flag = true;
+        }
+        if (b.equals("east")) {
+            createRoom(currRoom.getEast());
+            flag = true;
+        }
+        if (b.equals("west")) {
+            createRoom(currRoom.getWest());
+            flag = true;
+        }
+        if (b.equals("isAction")) {
+            ActionList al = new ActionList();
+            nextRoom = al.doAction(a, currRoom);
+            flag = false;
+        }
+        if (b.equals("isOther")) { //Treats the a input if it is help or inventory.
+            otherInputs(a);
         }
     }
 

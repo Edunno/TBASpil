@@ -13,12 +13,11 @@ import Player.*;
  */
 public class Fight {
 
-    Player p; // We need a Player object for the fight
-    Monster m; // We also need a monster object
-    boolean fightInProgress = true; // this boolean is used to signal whether theres a fight in progress or not
-    boolean isPlayerDead = false;
+    private Player p; // We need a Player object for the fight
+    private Monster m; // We also need a monster object
+    private boolean fightInProgress = true; // this boolean is used to signal whether theres a fight in progress or not
+    private boolean isPlayerDead = false;
 
-     
     public Fight(Player p, Monster m) {
         this.p = p;
         this.m = m;
@@ -29,16 +28,44 @@ public class Fight {
     public void attack() {
         if (fightInProgress) {
             m.takeDamage((p.getMainHand().getDmgBonus() + p.getOffHand().getDmgBonus()) - (p.getMainHand().getDefBonus() + p.getOffHand().getDefBonus()));
-            p.setHealth(p.getHealth()-m.getDmg());
-            if(m.getHp() <= 0 ){
+            p.setHealth(p.getHealth() - m.getDmg());
+            if (m.getHp() <= 0) {
                 fightInProgress = false;
             }
-            if(p.getHealth() <= 0){
+            if (p.getHealth() <= 0) {
                 isPlayerDead = true;
-        }
+            }
         }
     }
 
-    
+    public String checkFight(String a) {
+        while (true) {
+            for (int i = 0; i < m.getAttackOptions().size(); i++) {
+                if (a.equals(m.getAttackOptions().get(i))) {
+                    if (a.equals("attack")) {
+                        attack();
+                        return "other";
+                    } else {
+                        m.attackOptions(a);
+                    }
+                } else if (a.equals("help") || a.equals("inventory")) {
+                    return "isOther";
+                }
+            }
+            return "falseAction";
+        }
+    }
+
+    public Monster getMonster() {
+        return m;
+    }
+
+    public boolean isFightInProgress() {
+        return fightInProgress;
+    }
+
+    public boolean isIsPlayerDead() {
+        return isPlayerDead;
+    }
 
 }
