@@ -57,6 +57,7 @@ public class Controller {
             if (currRoom.isFight()) { //Switches over to combat mode, if the room contains a fight.
                 currMonster = mons.makeMonster(currRoom.getMonster(), gamer);
                 fight = new Fight(gamer, currMonster);
+                ask.printMonsterGreet(currMonster);
                 while (true) {
                     tuiText = fightInTUI(currMonster);
                     String b = fight.checkFight(tuiText);
@@ -74,6 +75,9 @@ public class Controller {
                     if (fight.isIsPlayerDead()) {
                         //Slut spillet og skriv player highscore
                     }
+                }
+                if(currMonster.getHp() <= 0){
+                    ask.printMonsterDefeat(currMonster);
                 }
                 currRoom.setFight(false);
             }

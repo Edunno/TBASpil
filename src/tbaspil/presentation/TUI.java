@@ -89,4 +89,10 @@ public class TUI {
         }
         System.out.println("Reusable: " + a.isReUsable());
     }
+    public void printMonsterGreet(Monster a){
+        System.out.println(a.getMonsterGreetings());
+    }
+    public void printMonsterDefeat(Monster a){
+        System.out.println(a.getMonsterDefeat());
+    }
 }
