@@ -19,6 +19,8 @@ public class Ragnaros extends Monster {
     private ArrayList attackOptions;
     private int rand;
     String voiceAttack;
+    private String monsterGreetings;
+    private String monsterDefeat;
     
     
     
@@ -27,6 +29,8 @@ public class Ragnaros extends Monster {
         attackOptions.add("Spit");
         attackOptions.add("Pee");
         attackOptions.add("Fire extinguisher");
+        monsterGreetings = "TOO SOON! YOU HAVE AWAKENED ME TOO SOON, EXECUTUS! \n WHAT IS THE MEANING OF THIS INTRUSION?";
+        monsterDefeat = "NOOOOOOOOOOOOOOOOOOOO";
     }
     
 
