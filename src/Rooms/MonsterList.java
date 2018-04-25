@@ -7,6 +7,7 @@ package Rooms;
 
 import Player.Monster;
 import Player.Monsters.Babysitter;
+import Player.Player;
 
 /**
  *
@@ -14,7 +15,7 @@ import Player.Monsters.Babysitter;
  */
 public class MonsterList {
     
-    public Monster makeMonster(String name){
+    public Monster makeMonster(String name, Player player){
         if(name.equals("Babysitter")){
             Babysitter bs = new Babysitter();
             return bs;

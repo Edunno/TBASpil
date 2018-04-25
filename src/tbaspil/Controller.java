@@ -54,7 +54,7 @@ public class Controller {
                 tuiText = getInputFromTUI("");
             }
             if (currRoom.isFight()) { //Switches over to combat mode, if the room contains a fight.
-                currMonster = mons.makeMonster(currRoom.getMonster());
+                currMonster = mons.makeMonster(currRoom.getMonster(),gamer);
                 if (startFight) {
                     fight = new Fight(gamer, currMonster);
                     startFight = false;
