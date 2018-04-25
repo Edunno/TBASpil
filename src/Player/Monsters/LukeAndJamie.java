@@ -11,13 +11,17 @@ import java.util.Random;
 
 public class LukeAndJamie extends Monster {
     
-    private String voiceAttack;
-    private int dmg1 = 0;
     private Random r = new Random();
+    private ArrayList attackOptions;
     private int rand;
+    String voiceAttack;
+    int dmg1 = 0;
     
     public LukeAndJamie() {
         super("Luke and Jamie", 20, 2, 25);
+        attackOptions.add("attack");
+        attackOptions.add("Knock their heads together");
+        attackOptions.add("Ask if they could use a hand");
     }
 
     public void voiceAttack() {
@@ -39,9 +43,23 @@ public class LukeAndJamie extends Monster {
                 break;
         }
     }
+        @Override
+    public void attackOptions(String str) {
+        switch (str) {
+            case "attack":
+                break;
+            case "Knock their heads together":
+                takeDamage(3);
+                dmg1 = 4;
+                break;
+            case "Ask if they could use a hand":
+                takeDamage(1);
+                dmg1 = 2;
+                break;
+        }
         
         
-        
+    }
         
     }
     
