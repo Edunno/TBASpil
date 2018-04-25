@@ -20,7 +20,7 @@ public class Babysitter extends Monster {
     private int dmg2 = 0;
     private Random r = new Random();
     private ArrayList attackOptions;
-    int rand;
+    private int rand;
 
     public Babysitter() {
         super("Babysitter", 10, 0);
@@ -36,7 +36,6 @@ public class Babysitter extends Monster {
         return dmg1;
     }
 
-    @Override
     public void voiceAttack() {
         this.rand = r.nextInt(5) + 1;
         dmg1 = 0;
@@ -74,6 +73,7 @@ public class Babysitter extends Monster {
         }
     }
 
+    @Override
     public void attackOptions(String a) {
         switch (rand) {
             case 1:

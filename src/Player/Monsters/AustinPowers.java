@@ -30,7 +30,6 @@ public class AustinPowers extends Monster {
         
     }
     
-    @Override
     public void voiceAttack() {
         int rand = r.nextInt(5) + 1;
         dmg1 = 0;
