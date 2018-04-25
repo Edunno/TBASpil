@@ -17,10 +17,9 @@ public class LukeAndJamie extends Monster {
     private int rand;
     
     public LukeAndJamie() {
-        super("Luke and Jamie", 20, 2);
+        super("Luke and Jamie", 20, 2, 25);
     }
 
-    @Override
     public void voiceAttack() {
         this.rand = r.nextInt(5) + 1;
         dmg1 = 0;

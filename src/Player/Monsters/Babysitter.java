@@ -23,7 +23,7 @@ public class Babysitter extends Monster {
     private int rand;
 
     public Babysitter() {
-        super("Babysitter", 10, 0);
+        super("Babysitter", 10, 0, 30);
         attackOptions.add("attack");
         attackOptions.add("Yell at babysitter");
         attackOptions.add("Snarky comeback");
