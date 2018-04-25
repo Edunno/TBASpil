@@ -87,4 +87,12 @@ public class ItemList {
         BBGun.setDmgBonus(2);
         return BBGun;
     }
+    
+    public Item getSulfuras() {
+        Item Sulfuras = new Item("Sulfuras, Hand of Ragnaros", "A giant glowing hammer, lava is flowing through the handle and it seems to be nearly indestructible", true);
+        Sulfuras.setReUsable(true);
+        Sulfuras.setIsMainHand(true);
+        Sulfuras.setDmgBonus(30);
+        return Sulfuras;
+    }
 }
