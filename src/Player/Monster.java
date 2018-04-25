@@ -27,6 +27,10 @@ public abstract class Monster {
         this.dmg = dmg;
         this.attackOptions.add("attack");
         this.attackOptions.add("Flee");
+        this.voiceAttack = "The monster attacks you!";
+        this.monsterGreetings = "The monster greets you..";
+        this.monsterDefeat = "The monster is defeated!";
+        
     }
 
     public int attack() {
@@ -49,20 +53,16 @@ public abstract class Monster {
         return hp;
     }
 
-    public void voiceAttack() {
-        this.voiceAttack = "The monster attacks you!";
+    public String getMonsterGreetings(){
+        return monsterGreetings;
     }
-
-    public void monsterGreetings() {
-        this.monsterGreetings = "The monster greets you..";
-    }
-
-    public void monsterDefeat() {
-        this.monsterDefeat = "The monster is defeated!";
-    }
-
+    
     public String getVoiceAttack() {
         return voiceAttack;
+    }
+    
+    public String getMonsterDefeat(){
+        return monsterDefeat;
     }
 
     public ArrayList getAttackOptions() {
