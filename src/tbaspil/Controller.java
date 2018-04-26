@@ -83,6 +83,9 @@ public class Controller {
                 }
                 if (currMonster.getHp() <= 0) {
                     ask.printMonsterDefeat(currMonster);
+                    if(fight.checkIfLootable()){
+                        gamer.addItem(fight.giveLoot());
+                    }
                     gamer.addDefeatedMonster(currMonster);
                     gamer.setScore(currMonster.getMonsterScore());
                 }
