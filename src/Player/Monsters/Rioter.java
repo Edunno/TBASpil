@@ -7,6 +7,7 @@ package Player.Monsters;
 
 import Player.Monster;
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,9 +16,10 @@ import java.util.Random;
 public class Rioter extends Monster {
 
     private int burnTimer;
+    
 
     public Rioter() {
-        super("Rioter", 10, 2, 40);
+        super("Rioter", 10, 2, 40,"attack");
     }
 
 

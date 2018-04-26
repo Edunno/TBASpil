@@ -7,6 +7,7 @@ package Rooms;
 
 import Player.Monster;
 import Player.Monsters.Babysitter;
+import Player.Monsters.Rioter;
 import Player.Player;
 
 /**
@@ -20,12 +21,10 @@ public class MonsterList {
             Babysitter bs = new Babysitter();
             return bs;
         }
-        /*
-        if(name.equals("MonsterNavn")){
-            MonsterNavn bs = new MonsterNavn();
+        if(name.equals("Rioter")){
+            Rioter bs = new Rioter();
             return bs;
         }
-        */
         return null;
     }
 }

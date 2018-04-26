@@ -23,11 +23,12 @@ public abstract class Monster {
     private int monsterScore;
     
     
-    public Monster(String name, int hp, int dmg, int monsterScore) {
+    public Monster(String name, int hp, int dmg, int monsterScore, String option) {
         this.name = name;
         this.hp = hp;
         this.dmg = dmg;
         this.monsterScore = monsterScore;
+        attackOptions = new ArrayList();
         this.attackOptions.add("attack");
         this.attackOptions.add("Flee");
         this.voiceAttack = name + " attacks you!";

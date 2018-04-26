@@ -152,6 +152,8 @@ public class Room {
         this.north = "saunaRoom";
         this.south = "londonRiotsRoom";
         this.east = "studio54";
+        this.fight = true;
+        monster = "Rioter";
         
     }
 

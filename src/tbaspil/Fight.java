@@ -27,8 +27,8 @@ public class Fight {
     // the player then loses health according to the monsters damage, if the monsters health is below 0 the fight is stopped.
     public void attack() {
         if (fightInProgress) {
-            m.takeDamage((p.getMainHand().getDmgBonus() + p.getOffHand().getDmgBonus()) - (p.getMainHand().getDefBonus() + p.getOffHand().getDefBonus()));
-            p.setHealth(p.getHealth() - m.getDmg());
+            m.takeDamage(checkPlayerHands()+1);
+            p.setHealth(p.getHealth() - m.getDmg() - checkForDefense());
             if (m.getHp() <= 0) {
                 fightInProgress = false;
             }
@@ -67,5 +67,30 @@ public class Fight {
     public boolean isIsPlayerDead() {
         return isPlayerDead;
     }
+    
+    private int checkPlayerHands(){
+        if(p.getMainHand() == null){
+            if(p.getOffHand() == null){
+                return 0;
+            }
+            return p.getOffHand().getDmgBonus();
+        }
+        if(p.getOffHand() == null){
+            return p.getMainHand().getDmgBonus();
+        }
+        return p.getMainHand().getDmgBonus()+p.getOffHand().getDmgBonus();
+    }
 
+    private int checkForDefense() {
+        if(p.getMainHand() == null){
+            if(p.getOffHand() == null){
+                return 0;
+            }
+            return p.getOffHand().getDefBonus();
+        }
+        if(p.getOffHand() == null){
+            return p.getMainHand().getDefBonus();
+        }
+        return p.getMainHand().getDefBonus()+p.getOffHand().getDefBonus();
+    }
 }
