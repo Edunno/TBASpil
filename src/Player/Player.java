@@ -25,6 +25,7 @@ public class Player {
     public Player(String name, int health) {
         this.name = name;
         this.maxHealth = health;
+        this.hp = health;
     }
 
     public String getName() {
@@ -79,7 +80,7 @@ public class Player {
         }
     }
     public void takeDmg(int i){
-        hp -= i;
+        hp = hp - i;
         if (hp > maxHealth)
             hp = maxHealth;
     }
