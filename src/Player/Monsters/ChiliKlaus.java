@@ -28,10 +28,10 @@ public class ChiliKlaus extends Monster {
         super("Chili Klaus", 100, 1, 30);
         attackOptions.add("Eat chili");
         attackOptions.add("Drink milk");
-        monsterGreetings = "Hej med dig! Vil du smage min chili? \n";
-        monsterDefeat = "Chili Klaus can't take it anymore, too much chili  \n"
+        setMonsterGreetings("Hej med dig! Vil du smage min chili? \n");
+        setMonsterDefeat("Chili Klaus can't take it anymore, too much chili  \n"
                          + "\"Jeg har alrig set en person spise så meget chili før! Du er sindssyg!\"\n"
-                         + "Chili Klaus runs back into the forest of chillies he emerged from, you will never see him again..";
+                         + "Chili Klaus runs back into the forest of chillies he emerged from, you will never see him again..");
     }
     
 
