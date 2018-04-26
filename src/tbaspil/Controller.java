@@ -80,6 +80,7 @@ public class Controller {
                 if (currMonster.getHp() <= 0) {
                     ask.printMonsterDefeat(currMonster);
                     gamer.addDefeatedMonster(currMonster);
+                    gamer.setScore(currMonster.getMonsterScore());
                 }
                 currRoom.setFight(false);
             }

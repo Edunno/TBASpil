@@ -52,4 +52,9 @@ public class Rioter extends Monster {
         }
     }
 
+    @Override
+    public void attackOptions(String str) {
+        //Lol, you can only attack this guy or run away from him. You suck if you flee brw.
+    }
+
 }
