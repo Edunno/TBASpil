@@ -29,11 +29,11 @@ public class Ragnaros extends Monster {
         attackOptions.add("Spit");
         attackOptions.add("Pee");
         attackOptions.add("Fire extinguisher");
-        monsterGreetings = "Ragnaros yells: TOO SOON! YOU HAVE AWAKENED ME TOO SOON, EXECUTUS! \n"
-                         + "WHAT IS THE MEANING OF THIS INTRUSION?";
-        monsterDefeat = "Ragnaros writhes in pain: NOOOOOOOOOOOOOOOOOOOO! \n"
+        setMonsterGreetings("Ragnaros yells: TOO SOON! YOU HAVE AWAKENED ME TOO SOON, EXECUTUS! \n"
+                         + "WHAT IS THE MEANING OF THIS INTRUSION?");
+        setMonsterDefeat("Ragnaros writhes in pain: NOOOOOOOOOOOOOOOOOOOO! \n"
                          + "The lava monster falls to ashes on the floor\n"
-                         + "In the ashes you spot a glowing hammer, the one Ragnaros himself wielded";
+                         + "In the ashes you spot a glowing hammer, the one Ragnaros himself wielded");
     }
     
 
