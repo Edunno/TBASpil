@@ -6,6 +6,7 @@
 package tbaspil;
 
 import Player.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -27,7 +28,7 @@ public class Fight {
     // the player then loses health according to the monsters damage, if the monsters health is below 0 the fight is stopped.
     public void attack() {
         if (fightInProgress) {
-            m.takeDamage(checkPlayerHands()+1);
+            m.takeDamage(checkPlayerHands() + 1);
             p.takeDmg((m.attack() - checkForDefense())); //Make if statement that ensures defense is not higher than Monster damage
             if (m.getHp() <= 0) {
                 fightInProgress = false;
@@ -46,11 +47,10 @@ public class Fight {
                         attack();
                         return "other";
                     }
-                    if (a.equals("Flee")){
+                    if (a.equals("Flee")) {
                         fightInProgress = false;
                         return "Flee";
-                    }
-                    else {
+                    } else {
                         m.attackOptions(a);
                     }
                 } else if (a.equals("help") || a.equals("inventory")) {
@@ -64,7 +64,8 @@ public class Fight {
     public Monster getMonster() {
         return m;
     }
-    public int getPlayerHP(){
+
+    public int getPlayerHP() {
         return p.getHealth();
     }
 
@@ -75,30 +76,42 @@ public class Fight {
     public boolean isIsPlayerDead() {
         return isPlayerDead;
     }
-    
-    private int checkPlayerHands(){
-        if(p.getMainHand() == null){
-            if(p.getOffHand() == null){
+
+    private int checkPlayerHands() {
+        if (p.getMainHand() == null) {
+            if (p.getOffHand() == null) {
                 return 0;
             }
             return p.getOffHand().getDmgBonus();
         }
-        if(p.getOffHand() == null){
+        if (p.getOffHand() == null) {
             return p.getMainHand().getDmgBonus();
         }
-        return p.getMainHand().getDmgBonus()+p.getOffHand().getDmgBonus();
+        return p.getMainHand().getDmgBonus() + p.getOffHand().getDmgBonus();
     }
 
     private int checkForDefense() {
-        if(p.getMainHand() == null){
-            if(p.getOffHand() == null){
+        if (p.getMainHand() == null) {
+            if (p.getOffHand() == null) {
                 return 0;
             }
             return p.getOffHand().getDefBonus();
         }
-        if(p.getOffHand() == null){
+        if (p.getOffHand() == null) {
             return p.getMainHand().getDefBonus();
         }
-        return p.getMainHand().getDefBonus()+p.getOffHand().getDefBonus();
+        return p.getMainHand().getDefBonus() + p.getOffHand().getDefBonus();
+    }
+
+    public Item giveLoot() {
+        return m.getLoot();
+    }
+
+    public boolean checkIfLootable() {
+        if (m.getLoot() == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

@@ -21,6 +21,7 @@ public abstract class Monster {
     private String monsterDefeat;
     private ArrayList attackOptions;
     private int monsterScore;
+    private Item loot;
 
     public Monster(String name, int hp, int dmg, int monsterScore) {
         this.name = name;
@@ -82,6 +83,15 @@ public abstract class Monster {
 
     public ArrayList getAttackOptions() {
         return attackOptions;
+    }
+    
+    public Item getLoot(){
+        
+    return loot;
+    }
+    
+    public void setLoot(Item i){
+        this.loot = i;
     }
 
     public abstract void attackOptions(String str);

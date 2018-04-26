@@ -5,6 +5,8 @@
  */
 package Player.Monsters;
 
+import Player.Item;
+import Rooms.ItemList;
 import Player.Monster;
 import java.util.Random;
 import java.util.ArrayList;
@@ -16,10 +18,12 @@ import java.util.ArrayList;
 public class Rioter extends Monster {
 
     private int burnTimer;
-    
+    private ItemList l = new ItemList();
 
     public Rioter() {
         super("Rioter", 10, 2, 40);
+        setLoot(l.getPlasticShield());
+        
     }
 
     @Override
