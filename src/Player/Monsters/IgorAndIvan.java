@@ -24,7 +24,7 @@ public class IgorAndIvan extends Monster {
     private Random r = new Random();
     private int rand;
 
-    public IgorAndIvan(String name, int hp, int dmg) {
+    public IgorAndIvan() {
         super("Igor & Ivan", 200, 10, 40);
         attackOptions.add("attack");
         attackOptions.add("Hit with birch branches");

@@ -89,6 +89,9 @@ public class Controller {
                 gamer.setHealth(fight.getPlayerHP());
                 currRoom.setFight(false);
             }
+            else if(currRoom.isFight() && checkIfDefeated(gamer.getMonstersDefeated())){
+                currRoom.setFight(false);
+            }
             else checkAction(tuiText);
         }
     }
@@ -117,8 +120,8 @@ public class Controller {
         Actions ch = new Actions(a, currRoom);
         String b = ch.checkAction();
         while (b.equals("falseAction")) { //Note that if the returned String "b" is "falseAction", the original String "a" is disregarded.
-            b = ask.falseInput();
-            ch.setAction(b);
+            a = ask.falseInput();
+            ch = new Actions(a, currRoom);
             b = ch.checkAction();
         }
         actOnCheck(a, b);
