@@ -3,24 +3,44 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FileWriter;
+package SaveData;
 
 import Player.Player;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author KimPPedersen
  */
-public class FileReader {
+public class FileManager implements DataSaverInterface {
+
     String filepath = "Score.csv";
+
+    @Override
+    public void saveData(Player p) {
+        try {
+            boolean append = true;
+            java.io.FileWriter fw = new java.io.FileWriter(filepath, append);
+            PrintWriter pw = new PrintWriter(fw);
+            pw.println(p.getName() + "," + p.getScore());
+            pw.flush();
+            pw.close();
+            JOptionPane.showMessageDialog(null, "Data saved");
+        } catch (IOException E) {
+            JOptionPane.showMessageDialog(null, "Data not saved");
+        }
+    }
     ArrayList<Player> l = new ArrayList();
 
+    @Override
     public ArrayList<Player> sortedByHighScore() {
         Comparator<Player> c = new Comparator<Player>() {
             @Override
@@ -32,6 +52,7 @@ public class FileReader {
         return l;
     }
 
+    @Override
     public ArrayList<Player> readData() {
         try {
             Scanner fileRead = new Scanner(new File(filepath));
@@ -50,7 +71,5 @@ public class FileReader {
         }
         return l;
     }
-
+    
 }
-    
-    
