@@ -49,7 +49,7 @@ public class Controller {
         createRoom("startRoom"); //Creates the startRoom, and sets it up so it can be transferred to currentRoom.
         while (gameRunning) {
             setCurrRoom();
-//            gamer.addItem(itemCreate.getWoodSword()); //Test item.
+            gamer.addItem(itemCreate.getWoodSword()); //Test item.
             if (flag && !currRoom.isFight()) { //Flag decides whether or not the flavor text from the currentRoom should be shown. It gets disabled if the player satys in a room.
                 tuiText = getInputFromTUI(currRoom.getFlavorText());
             } else if (!currRoom.isFight()) { //Runs the room normally(but without flavor text), if there is no fight.
@@ -82,9 +82,10 @@ public class Controller {
                     gamer.addDefeatedMonster(currMonster);
                     gamer.setScore(currMonster.getMonsterScore());
                 }
+                gamer.setHealth(fight.getPlayerHP());
                 currRoom.setFight(false);
             }
-            checkAction(tuiText);
+            else checkAction(tuiText);
         }
     }
 
@@ -188,7 +189,7 @@ public class Controller {
                         if (itemReq.equals(gamer.getItems().get(i).getName())) {
                             ask.printItem(gamer.getItems().get(i));
                             handleItem(gamer.getItems().get(i));
-                            break;
+                            return;
                         }
                     }
                     ask.generalPrinter("No such item. Try again.");

@@ -19,7 +19,7 @@ public class Rioter extends Monster {
     
 
     public Rioter() {
-        super("Rioter", 10, 2, 40,"attack");
+        super("Rioter", 10, 2, 40);
     }
 
 

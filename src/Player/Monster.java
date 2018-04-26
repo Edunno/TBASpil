@@ -23,7 +23,7 @@ public abstract class Monster {
     private int monsterScore;
     
     
-    public Monster(String name, int hp, int dmg, int monsterScore, String option) {
+    public Monster(String name, int hp, int dmg, int monsterScore) {
         this.name = name;
         this.hp = hp;
         this.dmg = dmg;
