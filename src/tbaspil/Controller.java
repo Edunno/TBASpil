@@ -142,7 +142,7 @@ public class Controller {
                 + "        ░                                                                 \n"
                 + "Intro:\n"
                 + "If available, type: \"north\", \"south\", \"east\" or \"west\" to move to the room in tha direction."
-                + "You can type \"help\" at any time to get extra info."
+                + "You can type \"help\" and inventory at any time to get extra info."
                 + "Some options may not be displayed, but the most obvious actions are always available.";
     }
 

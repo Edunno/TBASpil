@@ -35,6 +35,7 @@ public class TUI {
     }
 
     public String getInput(String a, Room room) {
+        printSeperator();
         System.out.println("\n" + a);
         System.out.println("\nAvailable commands:");
         for (int i = 0; i < (room.getDoors().size() + room.getActions().size()); i++) {
@@ -44,6 +45,7 @@ public class TUI {
                 System.out.println(room.getActions().get(i - room.getDoors().size()));
             }
         }
+        printSeperator();
         String b = sc.nextLine().toLowerCase();
         return b;
     }
@@ -60,16 +62,20 @@ public class TUI {
         for(int i = 0; i < x.getAttackOptions().size();i++){
             System.out.println(x.getAttackOptions().get(i)); //Hopefully prints the name of available options
         }
+        printSeperator();
         String a = sc.nextLine();
+        printSeperator();
         return a;
     }
 
     public String inputRequest(String a) {
+        printSeperator();
         System.out.println(a);
         return sc.nextLine();
     }
 
     public void printItem(Item a) { //Der mangler måske nogle ting her.
+        printSeperator();
         System.out.println("Name: " + a.getName());
         System.out.println(a.getDescription());
         if (a.getDmgBonus() != 0) {
@@ -90,9 +96,15 @@ public class TUI {
         System.out.println("Reusable: " + a.isReUsable());
     }
     public void printMonsterGreet(Monster a){
+        printSeperator();
         System.out.println(a.getMonsterGreetings());
     }
     public void printMonsterDefeat(Monster a){
+        printSeperator();
         System.out.println(a.getMonsterDefeat());
+    }
+    
+    public void printSeperator(){
+        System.out.println("_________________________________________________");
     }
 }
