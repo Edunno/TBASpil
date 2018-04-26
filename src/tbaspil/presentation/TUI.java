@@ -54,8 +54,8 @@ public class TUI {
         return a;
     }
 
-    public String fightInput(Monster x) {
-        System.out.println(x.getVoiceAttack());
+    public String fightInput(Monster x, int hp) {
+        System.out.println(x.getVoiceAttack()+"     Player HP: "+hp);
         System.out.println("Available options:");
         for(int i = 0; i < x.getAttackOptions().size();i++){
             System.out.println(x.getAttackOptions().get(i)); //Hopefully prints the name of available options

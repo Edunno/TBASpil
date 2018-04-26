@@ -23,6 +23,7 @@ public class Controller {
 
     private Room currRoom;
     private Room nextRoom;
+    private Room prevRoom;
     private TUI ask;
     private Player gamer;
     private boolean flag = true;
@@ -60,14 +61,17 @@ public class Controller {
                 fight = new Fight(gamer, currMonster);
                 ask.printMonsterGreet(currMonster);
                 while (true) {
-                    tuiText = fightInTUI(currMonster);
+                    tuiText = fightInTUI(currMonster,fight.getPlayerHP());
                     String b = fight.checkFight(tuiText);
                     while (b.equals("falseAction")) { //Note that if the returned String "b" is "falseAction", the original String "a" is disregarded.
-                        tuiText = fightInTUI(currMonster);
+                        tuiText = fightInTUI(currMonster,fight.getPlayerHP());
                         b = fight.checkFight(tuiText);
                     }
                     if (b.equals("isOther")) {
                         actOnCheck(tuiText, b);
+                    }
+                    if (b.equals("Flee")){
+                        this.nextRoom = this.prevRoom;
                     }
                     currMonster = fight.getMonster();
                     if (!fight.isFightInProgress()) {
@@ -101,6 +105,7 @@ public class Controller {
 
     //Indsætter det nye rum.
     public void setCurrRoom() {
+        this.prevRoom = this.currRoom;
         this.currRoom = this.nextRoom;
     }
 
@@ -138,8 +143,8 @@ public class Controller {
                 + "Some options may not be displayed, but the most obvious actions are always available.";
     }
 
-    private String fightInTUI(Monster a) {
-        return ask.fightInput(a);
+    private String fightInTUI(Monster a, int hp) {
+        return ask.fightInput(a, hp);
     }
 
     private void handleItem(Item a) {

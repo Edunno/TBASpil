@@ -24,6 +24,7 @@ public class FileManager implements DataSaverInterface {
 
     String filepath = "Score.csv";
 
+    //Her gemmes data
     @Override
     public void saveData(Player p) {
         try {
@@ -40,18 +41,7 @@ public class FileManager implements DataSaverInterface {
     }
     ArrayList<Player> l = new ArrayList();
 
-    @Override
-    public ArrayList<Player> sortedByHighScore() {
-        Comparator<Player> c = new Comparator<Player>() {
-            @Override
-            public int compare(Player o1, Player o2) {
-                return o2.getScore() - o1.getScore();
-            }
-        };
-        Collections.sort(l, c);
-        return l;
-    }
-
+    //Her Indlæses data fra fil
     @Override
     public ArrayList<Player> readData() {
         try {
@@ -71,5 +61,16 @@ public class FileManager implements DataSaverInterface {
         }
         return l;
     }
-    
+    //Her sorteres data til efter high score
+    @Override
+    public ArrayList<Player> sortedByHighScore() {
+        Comparator<Player> c = new Comparator<Player>() {
+            @Override
+            public int compare(Player o1, Player o2) {
+                return o2.getScore() - o1.getScore();
+            }
+        };
+        Collections.sort(l, c);
+        return l;
+    }
 }

@@ -22,7 +22,7 @@ public class Rioter extends Monster {
         super("Rioter", 10, 2, 40);
     }
 
-
+    @Override
     public int attack() {
         System.out.print("The Rioter attacks you ");
         int dmg = 0;
@@ -56,7 +56,7 @@ public class Rioter extends Monster {
 
     @Override
     public void attackOptions(String str) {
-        //Lol, you can only attack this guy or run away from him. You suck if you flee brw.
+        //Lol, you can only attack this guy or run away from him. You suck if you flee btw.
     }
 
 }

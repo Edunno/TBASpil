@@ -28,7 +28,7 @@ public class Fight {
     public void attack() {
         if (fightInProgress) {
             m.takeDamage(checkPlayerHands()+1);
-            p.takeDmg(p.getHealth() - m.getDmg() - checkForDefense());
+            p.takeDmg((m.attack() - checkForDefense())); //Make if statement that ensures defense is not higher than Monster damage
             if (m.getHp() <= 0) {
                 fightInProgress = false;
             }
@@ -45,7 +45,12 @@ public class Fight {
                     if (a.equals("attack")) {
                         attack();
                         return "other";
-                    } else {
+                    }
+                    if (a.equals("Flee")){
+                        fightInProgress = false;
+                        return "Flee";
+                    }
+                    else {
                         m.attackOptions(a);
                     }
                 } else if (a.equals("help") || a.equals("inventory")) {
