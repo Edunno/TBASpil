@@ -131,12 +131,7 @@ public class Room {
 
 
         doors.add("south");
-
-//        actions.add("beat the meat");
-//        actions.add("give a hand");
-        
         this.south = "kitchenRoom";
-
     }
 
     public void darkChestRoom() {
@@ -144,8 +139,7 @@ public class Room {
                 + "The room is completely dark, except of a little stream of light, that enlightens a small shining chest.\n"
                 + "There is tones from a little chime playing in the background. The room smells like moist.\n"
                 + "You are thinking about all those scenarios from Indiana Jones, where he removes the artifact.";
-        
-
+      
         doors.add("north");
         doors.add("south");
         doors.add("east");
@@ -232,7 +226,8 @@ public class Room {
     public void chiliRoom() {
         this.flavorText = "You have entered the room.\n"
                 + "You are met with the smell of newly cut grass and spicy lemon.\n"
-                + "A voice ermerges: HI I am ChiliKlaus. Do you want surstrømning or just regular caroline aka carolina reaper?\n"
+                + "The room is filled with chili plants, some are red, some are yellow, som are even white\n"
+                + "You see some eyes within the leaves, red glowing eyes... a small man it seems...\n"
                 + "This funny little leprechaun looking man with black beard is the only thing you can focus on in this room";
         
         doors.add("north");
@@ -261,7 +256,6 @@ public class Room {
          doors.add("east");
          this.east = "darkChestRoom";
          actions.add("Grab");
-         //fight = true;
     }
     
     public void kitchenRoom() {

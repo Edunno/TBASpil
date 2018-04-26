@@ -28,7 +28,7 @@ public class Fight {
     public void attack() {
         if (fightInProgress) {
             m.takeDamage(checkPlayerHands()+1);
-            p.setHealth(p.getHealth() - m.getDmg() - checkForDefense());
+            p.takeDmg(p.getHealth() - m.getDmg() - checkForDefense());
             if (m.getHp() <= 0) {
                 fightInProgress = false;
             }
