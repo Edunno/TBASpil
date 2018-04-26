@@ -59,6 +59,9 @@ public class Fight {
     public Monster getMonster() {
         return m;
     }
+    public int getPlayerHP(){
+        return p.getHealth();
+    }
 
     public boolean isFightInProgress() {
         return fightInProgress;
