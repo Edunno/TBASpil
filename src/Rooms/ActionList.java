@@ -41,4 +41,11 @@ public class ActionList {
         actionLoot = il.getCrowbar();
         return currRoom;
     }
+
+    public Room lootChest(Room currRoom) {
+        currRoom.removeAction("Loot chest");
+        ItemList il = new ItemList();
+        actionLoot = il.getDaddysBelt();
+        return currRoom;
+    }
 }
