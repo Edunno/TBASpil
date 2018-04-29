@@ -49,10 +49,15 @@ public class Player {
     }
 
     public void addItem(Item newItem) {
-        //Lav check for om der er duplikater m.m.
+        for (int i = 0; i < Items.size(); i++) {
+            if (Items.contains(newItem) && newItem.isUnique()) {
+                return;
+            }
+        }
         this.Items.add(newItem);
     }
-    public void removeItem(Item oldItem){
+
+    public void removeItem(Item oldItem) {
         this.Items.remove(oldItem);
     }
 
@@ -79,33 +84,38 @@ public class Player {
             this.offHand = offHand;
         }
     }
-    public void takeDmg(int i){
+
+    public void takeDmg(int i) {
         hp = hp - i;
-        if (hp > maxHealth)
+        if (hp > maxHealth) {
             hp = maxHealth;
+        }
     }
-    public void restoreHp(int i){
+
+    public void restoreHp(int i) {
         hp += i;
-        if (hp > maxHealth)
+        if (hp > maxHealth) {
             hp = maxHealth;
+        }
     }
+
     public void addMaxHealth(int i) {
         maxHealth += i;
     }
-    
-    public int getScore(){
+
+    public int getScore() {
         return score;
     }
-    
-    public void setScore(int i){
-        score+=i;
+
+    public void setScore(int i) {
+        score += i;
     }
-    
-    public void addDefeatedMonster(Monster m){
+
+    public void addDefeatedMonster(Monster m) {
         monstersDefeated.add(m);
     }
-    
-    public ArrayList<Monster> getMonstersDefeated(){
+
+    public ArrayList<Monster> getMonstersDefeated() {
         return monstersDefeated;
     }
 }
