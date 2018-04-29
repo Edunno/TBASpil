@@ -18,6 +18,7 @@ public class ItemList {
         woodSword.setReUsable(true);
         woodSword.setIsMainHand(true);
         woodSword.setDmgBonus(1);
+        woodSword.setUnique(true);
         return woodSword;
     }
 
@@ -26,6 +27,7 @@ public class ItemList {
         momsDildo.setReUsable(true);
         momsDildo.setIsMainHand(true);
         momsDildo.setDmgBonus(2);
+        momsDildo.setUnique(true);
         return momsDildo;
     }
 
@@ -66,6 +68,7 @@ public class ItemList {
         plasticShield.setReUsable(true);
         plasticShield.setIsOffHand(true);
         plasticShield.setDefBonus(2);
+        plasticShield.setUnique(true);
         return plasticShield;
     }
 
@@ -93,6 +96,7 @@ public class ItemList {
         Sulfuras.setReUsable(true);
         Sulfuras.setIsMainHand(true);
         Sulfuras.setDmgBonus(30);
+        Sulfuras.setUnique(true);
         return Sulfuras;
     }
 
