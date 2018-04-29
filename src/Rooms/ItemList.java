@@ -87,12 +87,20 @@ public class ItemList {
         BBGun.setDmgBonus(2);
         return BBGun;
     }
-    
+
     public Item getSulfuras() {
         Item Sulfuras = new Item("Sulfuras, Hand of Ragnaros", "A giant glowing hammer, lava is flowing through the handle and it seems to be nearly indestructible", true);
         Sulfuras.setReUsable(true);
         Sulfuras.setIsMainHand(true);
         Sulfuras.setDmgBonus(30);
         return Sulfuras;
+    }
+
+    public Item getCrowbar() {
+        Item crowbar = new Item("A red Crowbar", "A usefull tool. Equally good at opening boxes and smashing skulls", true);
+        crowbar.setReUsable(true);
+        crowbar.setIsMainHand(true);
+        crowbar.setDmgBonus(2);
+        return crowbar;
     }
 }

@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * @author Esben
  */
 public class Controller {
-
+    
     private Room currRoom;
     private Room nextRoom;
     private Room prevRoom;
@@ -61,16 +61,16 @@ public class Controller {
                 fight = new Fight(gamer, currMonster);
                 ask.printMonsterGreet(currMonster);
                 while (true) {
-                    tuiText = fightInTUI(currMonster,fight.getPlayerHP());
+                    tuiText = fightInTUI(currMonster, fight.getPlayerHP());
                     String b = fight.checkFight(tuiText);
                     while (b.equals("falseAction")) { //Note that if the returned String "b" is "falseAction", the original String "a" is disregarded.
-                        tuiText = fightInTUI(currMonster,fight.getPlayerHP());
+                        tuiText = fightInTUI(currMonster, fight.getPlayerHP());
                         b = fight.checkFight(tuiText);
                     }
                     if (b.equals("isOther")) {
                         actOnCheck(tuiText, b);
                     }
-                    if (b.equals("Flee")){
+                    if (b.equals("Flee")) {
                         this.nextRoom = this.prevRoom;
                     }
                     currMonster = fight.getMonster();
@@ -83,7 +83,7 @@ public class Controller {
                 }
                 if (currMonster.getHp() <= 0) {
                     ask.printMonsterDefeat(currMonster);
-                    if(fight.checkIfLootable()){
+                    if (fight.checkIfLootable()) {
                         gamer.addItem(fight.giveLoot());
                     }
                     gamer.addDefeatedMonster(currMonster);
@@ -91,14 +91,14 @@ public class Controller {
                 }
                 gamer.setHealth(fight.getPlayerHP());
                 currRoom.setFight(false);
-            }
-            else if(currRoom.isFight() && checkIfDefeated(gamer.getMonstersDefeated())){
+            } else if (currRoom.isFight() && checkIfDefeated(gamer.getMonstersDefeated())) {
                 currRoom.setFight(false);
+            } else {
+                checkAction(tuiText);
             }
-            else checkAction(tuiText);
         }
     }
-
+    
     public String getInputFromTUI(String a) {
         String b = ask.getInput(a, currRoom);
         return b;
@@ -114,11 +114,11 @@ public class Controller {
         this.prevRoom = this.currRoom;
         this.currRoom = this.nextRoom;
     }
-
+    
     public void createPlayer(String a) {
         this.gamer = new Player(a, 100);
     }
-
+    
     public void checkAction(String a) {
         Actions ch = new Actions(a, currRoom);
         String b = ch.checkAction();
@@ -129,7 +129,7 @@ public class Controller {
         }
         actOnCheck(a, b);
     }
-
+    
     private void makeIntro() {
         this.intro
                 = "                                                WELCOME TO:\n"
@@ -144,15 +144,16 @@ public class Controller {
                 + "  ░            ░  ░      ░     ░  ░       ░      ░  ░         ░          \n"
                 + "        ░                                                                 \n"
                 + "Intro:\n"
-                + "If available, type: \"north\", \"south\", \"east\" or \"west\" to move to the room in tha direction."
-                + "You can type \"help\" and inventory at any time to get extra info."
-                + "Some options may not be displayed, but the most obvious actions are always available.";
+                + "If available, type: \"north\", \"south\", \"east\" or \"west\" to move to the room in tha direction.\n"
+                + "You can type \"help\" and \"inventory\" at any time to get extra info.\n"
+                + "In combat you will usually be able to attack and flee, but other options may be available under certain circumstances.\n"
+                + "Some options may not be displayed, but the most obvious actions are always available.\n";
     }
-
+    
     private String fightInTUI(Monster a, int hp) {
         return ask.fightInput(a, hp);
     }
-
+    
     private void handleItem(Item a) {
         if (a.isIsMainHand() || a.isIsOffHand()) {
             String itemUse = ask.inputRequest("Equip?(yes/no)");
@@ -170,7 +171,7 @@ public class Controller {
             }
         }
     }
-
+    
     private void useItem(Item a) {
         gamer.addMaxHealth(a.getHpBonus());
         gamer.restoreHp(a.getHpRestore());
@@ -178,7 +179,7 @@ public class Controller {
             gamer.removeItem(a);
         }
     }
-
+    
     private void otherInputs(String a) {
         if (a.equals("help")) {
             flag = false;
@@ -208,7 +209,7 @@ public class Controller {
             }
         }
     }
-
+    
     private void actOnCheck(String a, String b) {
         if (b.equals("north")) {
             createRoom(currRoom.getNorth());
@@ -230,12 +231,15 @@ public class Controller {
             ActionList al = new ActionList();
             nextRoom = al.doAction(a, currRoom);
             flag = false;
+            if (al.isGivesLoot()) {
+                gamer.addItem(al.getActionLoot());
+            }
         }
         if (b.equals("isOther")) { //Treats the a input if it is help or inventory.
             otherInputs(a);
         }
     }
-
+    
     private boolean checkIfDefeated(ArrayList<Monster> l) {
         for (int i = 0; i < l.size(); i++) {
             if (l.get(i).getName().equals(currMonster.getName())) {
@@ -244,5 +248,5 @@ public class Controller {
         }
         return false;
     }
-
+    
 }
