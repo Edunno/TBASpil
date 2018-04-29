@@ -229,11 +229,13 @@ public class Controller {
         }
         if (b.equals("isAction")) {
             ActionList al = new ActionList();
+            ask.generalPrinter(al.getActionFlav());
             nextRoom = al.doAction(a, currRoom);
             flag = false;
             if (al.isGivesLoot()) {
                 gamer.addItem(al.getActionLoot());
             }
+            
         }
         if (b.equals("isOther")) { //Treats the a input if it is help or inventory.
             otherInputs(a);

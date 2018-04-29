@@ -29,7 +29,9 @@ public class Fight {
     public void attack() {
         if (fightInProgress) {
             m.takeDamage(checkPlayerHands() + 1);
-            p.takeDmg((m.attack() - checkForDefense())); //Make if statement that ensures defense is not higher than Monster damage
+            if (m.attack() - checkForDefense() > 0) {
+                p.takeDmg((m.attack() - checkForDefense()));
+            }
             if (m.getHp() <= 0) {
                 fightInProgress = false;
             }

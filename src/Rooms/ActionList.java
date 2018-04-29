@@ -15,6 +15,7 @@ public class ActionList {
 
     private boolean givesLoot = false;
     private Item actionLoot;
+    private String actionFlav;
 
     public Room doAction(String actionTaken, Room currRoom) {
         if (actionTaken.equals("Loot Stores")) {
@@ -46,6 +47,29 @@ public class ActionList {
         currRoom.removeAction("Loot chest");
         ItemList il = new ItemList();
         actionLoot = il.getDaddysBelt();
+        actionFlav = "You have found Daddys Belt - Oh boi, you know this one hurts like fuck.";
         return currRoom;
     }
+    
+    public Room checkChair(Room currRoom){
+        currRoom.removeAction("Check chair");
+        actionFlav = "Just an old radio, scratting weird sounds.";
+        return currRoom;
+    }
+    
+    public Room pressStart(Room currRoom) {
+        currRoom.removeAction("Press start");
+        ItemList il = new ItemList();
+        actionLoot = il.getMonsterEnergy();
+        actionFlav = "A pinata drops down from a missing square in the ceiling."
+                + "It contains a Monster!!"
+                + "Programming will be easier now, but you don't have a pc";
+        return currRoom;
+    }
+
+    public String getActionFlav() {
+        return actionFlav;
+    }
+    
+    
 }

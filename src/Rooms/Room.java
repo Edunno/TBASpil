@@ -132,6 +132,7 @@ public class Room {
 
         doors.add("south");
         this.south = "kitchenRoom";
+        actions.add("Check chair");
     }
 
     public void darkChestRoom() {
@@ -148,6 +149,7 @@ public class Room {
         this.east = "studio54";
         this.fight = true;
         monster = "Rioter";
+        actions.add("Loot chest");
         
     }
 
@@ -165,6 +167,8 @@ public class Room {
         doors.add("west");
         this.south = "lavaFloorRoom";
         this.west = "sarajevo1910";
+        this.fight = true;
+        monster = "LukeAndJamie";
     }
 
     public void lavaFloorRoom() {
@@ -192,6 +196,7 @@ public class Room {
         doors.add("west");
         this.east = "placeholderRoom";
         this.west = "chiliRoom";
+        actions.add("Press start");
     }
 
     public void studio54() {
