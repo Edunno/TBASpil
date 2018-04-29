@@ -46,13 +46,13 @@ public class TUI {
             }
         }
         printSeperator();
-        String b = sc.nextLine().toLowerCase();
+        String b = sc.nextLine();
         return b;
     }
 
     public String falseInput() {
         System.out.println("Input is not elligeble. Please try again. ");
-        String a = sc.nextLine().toLowerCase();
+        String a = sc.nextLine();
         return a;
     }
 
