@@ -13,6 +13,7 @@ import Player.Player;
 import Rooms.ActionList;
 import Rooms.ItemList;
 import Rooms.MonsterList;
+import SaveData.FileManager;
 import java.util.ArrayList;
 
 /**
@@ -35,6 +36,7 @@ public class Controller {
     private Fight fight;
     private boolean startFight = true;
     private boolean gameRunning = true;
+    FileManager fm = new FileManager();
 
     /*
     startGame initialises the classes needed for reference and data holding in Controller
@@ -48,6 +50,7 @@ public class Controller {
         String a = ask.getName(); //Gets the name that the player types from the TUI.
         createPlayer(a);
         createRoom("startRoom"); //Creates the startRoom, and sets it up so it can be transferred to currentRoom.
+        gamer.addItem(itemCreate.getWoodSword());
         while (gameRunning) {
             setCurrRoom();
             if (flag && !currRoom.isFight()) { //Flag decides whether or not the flavor text from the currentRoom should be shown. It gets disabled if the player satys in a room.
@@ -77,7 +80,9 @@ public class Controller {
                         break;
                     }
                     if (fight.isIsPlayerDead()) {
-                        //Slut spillet og skriv player highscore
+                        fm.saveData(gamer);
+                        fm.sortedByHighScore();
+                        fm.readData();
                     }
                 }
                 if (currMonster.getHp() <= 0) {
