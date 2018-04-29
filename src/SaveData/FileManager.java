@@ -51,7 +51,8 @@ public class FileManager implements DataSaverInterface {
                 String[] tokens = data.split(",");
                 String name = tokens[0];
                 int score = Integer.parseInt(tokens[1]);
-                Player player = new Player(name, score);
+                Player player = new Player(name, 0);
+                player.setScore(score);
                 l.add(player);
             }
             fileRead.close();

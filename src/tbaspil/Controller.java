@@ -81,8 +81,8 @@ public class Controller {
                     }
                     if (fight.isIsPlayerDead()) {
                         fm.saveData(gamer);
-                        fm.sortedByHighScore();
                         fm.readData();
+                        printHighscore(fm.sortedByHighScore());
                     }
                 }
                 if (currMonster.getHp() <= 0) {
@@ -253,6 +253,13 @@ public class Controller {
             }
         }
         return false;
+    }
+    
+    private void printHighscore(ArrayList<Player> l){
+        ask.generalPrinter("HIGHSCORE:\n");
+        for (Player p : l){
+            ask.generalPrinter("Name: " + p.getName()+ " Score: " + p.getScore() +"\n");
+        }
     }
     
 }
