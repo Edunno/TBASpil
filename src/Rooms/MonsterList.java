@@ -8,6 +8,7 @@ package Rooms;
 import Player.Monster;
 import Player.Monsters.AustinPowers;
 import Player.Monsters.Babysitter;
+import Player.Monsters.ChiliKlaus;
 import Player.Monsters.IgorAndIvan;
 import Player.Monsters.LukeAndJamie;
 import Player.Monsters.Ragnaros;
@@ -35,12 +36,19 @@ public class MonsterList {
         }
         if (name.equals("IgorAndIvan")) {
             IgorAndIvan ii = new IgorAndIvan();
+            return ii;
         }
         if (name.equals("LukeAndJamie")) {
             LukeAndJamie lj = new LukeAndJamie();
+            return lj;
         }
         if (name.equals("Ragnaros")) {
             Ragnaros r = new Ragnaros();
+            return r;
+        }
+        if (name.equals("ChiliKlaus")) {
+            ChiliKlaus c = new ChiliKlaus();
+            return c;
         }
         return null;
     }
