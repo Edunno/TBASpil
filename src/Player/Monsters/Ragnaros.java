@@ -7,6 +7,7 @@
 package Player.Monsters;
 
 import Player.Monster;
+import Rooms.ItemList;
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -21,6 +22,7 @@ public class Ragnaros extends Monster {
     String voiceAttack;
     private String monsterGreetings;
     private String monsterDefeat;
+    private ItemList l = new ItemList();
     
     
     
@@ -34,6 +36,7 @@ public class Ragnaros extends Monster {
         setMonsterDefeat("Ragnaros writhes in pain: NOOOOOOOOOOOOOOOOOOOO! \n"
                          + "The lava monster falls to ashes on the floor\n"
                          + "In the ashes you spot a glowing hammer, the one Ragnaros himself wielded");
+        setLoot(l.getSulfuras());
     }
     
 

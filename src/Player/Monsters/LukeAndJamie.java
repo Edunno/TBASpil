@@ -16,12 +16,17 @@ public class LukeAndJamie extends Monster {
     private int rand;
     String voiceAttack;
     int dmg1 = 0;
+    private String monsterGreetings;
+    private String monsterDefeat;
     
     public LukeAndJamie() {
         super("Luke and Jamie", 20, 2, 25);
         attackOptions.add("attack");
         attackOptions.add("Knock their heads together");
         attackOptions.add("Ask if they could use a hand");
+        setMonsterGreetings("*In sync voices* - Greetings traveler, that is some nice hands you have there.");
+        setMonsterDefeat("Luke: Now you will never become a jedi, FOOL.\n"
+                + "Jamie: FUCKING PIECE OF SHIT GOLD HAND. MAKES ME WEAK AS FK!");
     }
 
     public void voiceAttack() {

@@ -48,7 +48,8 @@ public class FightTest {
     public void testAttack() {
         Rioter r = new Rioter();
         assertFalse(r.getHp() <= 0);
-        assertTrue(r.getHp() > 0);
+        Player p = new Player("navn", 10);
+        assertTrue(p.getHealth() <= 0);
     }
 
     /**
@@ -56,7 +57,7 @@ public class FightTest {
      */
     @Test
     public void testCheckFight() {
-
+        
     }
 
 }
