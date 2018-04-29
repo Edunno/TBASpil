@@ -6,6 +6,7 @@
 package Player.Monsters;
 
 import Player.Monster;
+import Rooms.ItemList;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,12 +22,16 @@ public class AustinPowers extends Monster {
     private Random r = new Random();
     private ArrayList attackOptions;
     private int rand;
+    private ItemList l = new ItemList();
 
     public AustinPowers() {
         super("Austin Powers", 20, 2, 50);
         attackOptions.add("attack");
         attackOptions.add("Do drugs");
         attackOptions.add("Dance off");
+        setMonsterGreetings("Yeah, Baby! Ohhhhh behave... HAHHAHA - wanna fight now or fight later baby?!");
+        setMonsterDefeat("my mojo... You got me... Shagadelic, Baby, see you later aligator!");
+        setLoot(l.getBBGun());
         
     }
     
