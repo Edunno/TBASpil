@@ -6,6 +6,7 @@
 package Player.Monsters;
 
 import Player.Monster;
+import Rooms.ItemList;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -21,6 +22,7 @@ public class Babysitter extends Monster {
     private Random r = new Random();
     private ArrayList attackOptions;
     private int rand;
+    private ItemList l = new ItemList();
 
     public Babysitter() {
         super("Babysitter", 10, 0, 30);
@@ -28,6 +30,9 @@ public class Babysitter extends Monster {
         attackOptions.add("Yell at babysitter");
         attackOptions.add("Snarky comeback");
         attackOptions.add("Start crying");
+        setMonsterGreetings("ohhh aren't you a seet little thing, it's time to go to bed now! Do as i say or get punished!");
+        setMonsterDefeat("Ohhh " + Player.Player.class.getName() +" you're such a badass - I like you!!!");
+        setLoot(l.getMomsDildo());
     }
 
     @Override

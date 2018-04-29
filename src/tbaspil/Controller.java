@@ -48,6 +48,7 @@ public class Controller {
         String a = ask.getName(); //Gets the name that the player types from the TUI.
         createPlayer(a);
         createRoom("startRoom"); //Creates the startRoom, and sets it up so it can be transferred to currentRoom.
+        gamer.addItem(itemCreate.getWoodSword());
         while (gameRunning) {
             setCurrRoom();
             if (flag && !currRoom.isFight()) { //Flag decides whether or not the flavor text from the currentRoom should be shown. It gets disabled if the player satys in a room.

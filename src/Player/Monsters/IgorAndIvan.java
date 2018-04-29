@@ -6,6 +6,7 @@
 package Player.Monsters;
 
 import Player.Monster;
+import Rooms.ItemList;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,12 +24,16 @@ public class IgorAndIvan extends Monster {
     private boolean isIvanAlive = true;
     private Random r = new Random();
     private int rand;
+    private ItemList l = new ItemList();
 
     public IgorAndIvan() {
         super("Igor & Ivan", 200, 10, 40);
         attackOptions.add("attack");
         attackOptions.add("Hit with birch branches");
         attackOptions.add("Wet towel slap");
+        setMonsterGreetings("Finally you capitalist pigs will pay for your crimes. Igor and Ivan smash you pigs!!!");
+        setMonsterDefeat("ohhh no by the power Lenin - you maybe won the battle,but not the war you pig!");
+        setLoot(l.getBirchBranch());
 
     }
 
