@@ -49,10 +49,8 @@ public class Player {
     }
 
     public void addItem(Item newItem) {
-        for (int i = 0; i < Items.size(); i++) {
-            if (Items.contains(newItem) && newItem.isUnique()) {
-                return;
-            }
+        if (Items.contains(newItem) && newItem.isUnique()) {
+            return;
         }
         this.Items.add(newItem);
     }
