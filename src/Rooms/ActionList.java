@@ -21,6 +21,15 @@ public class ActionList {
         if (actionTaken.equals("Loot Stores")) {
             return lootStores(currRoom);
         }
+        if (actionTaken.equals("Loot chest")) {
+            return lootChest(currRoom);
+        }
+        if (actionTaken.equals("Check chair")) {
+            return checkChair(currRoom);
+        }
+        if (actionTaken.equals("Press start")) {
+            return pressStart(currRoom);
+        }
         /*if(actionTaken.equals("")){
         
         }*/
