@@ -7,6 +7,7 @@
 package Player.Monsters;
 
 import Player.Monster;
+import Rooms.ItemList;
 import java.util.ArrayList;
 import java.util.Random;
 /**
@@ -21,6 +22,7 @@ public class ChiliKlaus extends Monster {
     String voiceAttack;
     private String monsterGreetings;
     private String monsterDefeat;
+    private ItemList l = new ItemList();
     
     
     
@@ -32,6 +34,7 @@ public class ChiliKlaus extends Monster {
         setMonsterDefeat("Chili Klaus can't take it anymore, too much chili  \n"
                          + "\"Jeg har alrig set en person spise så meget chili før! Du er sindssyg!\"\n"
                          + "Chili Klaus runs back into the forest of chillies he emerged from, you will never see him again..");
+        setLoot(l.getDaddysBelt());
     }
     
 
