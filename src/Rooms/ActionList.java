@@ -18,16 +18,16 @@ public class ActionList {
     private String actionFlav;
 
     public Room doAction(String actionTaken, Room currRoom) {
-        if (actionTaken.equals("Loot Stores".toLowerCase())) {
+        if (actionTaken.equals("Loot Stores")) {
             return lootStores(currRoom);
         }
-        if (actionTaken.equals("Loot chest".toLowerCase())) {
+        if (actionTaken.equals("Loot chest")) {
             return lootChest(currRoom);
         }
-        if (actionTaken.equals("Check chair".toLowerCase())) {
+        if (actionTaken.equals("Check chair")) {
             return checkChair(currRoom);
         }
-        if (actionTaken.equals("Press start".toLowerCase())) {
+        if (actionTaken.equals("Press start")) {
             return pressStart(currRoom);
         }
         /*if(actionTaken.equals("")){
